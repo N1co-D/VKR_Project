@@ -2,6 +2,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.Test;
+import pages.AdmissionsCommitteePage;
 import pages.HabitationPage;
 import pages.MainPage;
 import pages.SchedulePage;
@@ -17,6 +18,7 @@ public class CitilinkTest extends BaseTest {
     private final MainPage mainPage = new MainPage();
     private final SchedulePage schedulePage = new SchedulePage();
     private final HabitationPage habitationPage = new HabitationPage();
+    private final AdmissionsCommitteePage admissionsCommitteePage = new AdmissionsCommitteePage();
     private final ConfProperties confProperties = new ConfProperties();
 
 
@@ -58,6 +60,20 @@ public class CitilinkTest extends BaseTest {
                 .dormitoryClick("1")
                 .checkDormitoryAddress("г. Санкт Петербург, ул. 7-я Красноармейская, д.12");
     }
+
+    @Description("-----")
+    @Test
+    public void test3() {
+        open(confProperties.getProperty("test-site"));
+
+        mainPage.checkIfCorrectPageOpen()
+                .admissionsCommitteeWebsiteClick();
+
+        admissionsCommitteePage.checkIfCorrectPageOpen()
+                .receptionPlacesNumber()
+                .numberOfPaidPlacesForAdmissionDownloadButtonClick();
+    }
+
 }
 //                    .searchProductByInputBox(inputText);
 
