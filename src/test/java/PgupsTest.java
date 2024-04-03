@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,7 @@ public class PgupsTest extends BaseTest {
     private final PriorityPage priorityPage = new PriorityPage();
     private final DigitalDepartmentPage digitalDepartmentPage = new DigitalDepartmentPage();
     private final ScientificConferencesPage scientificConferencesPage = new ScientificConferencesPage();
+    private final PgupsMuseumPage pgupsMuseumPage = new PgupsMuseumPage();
     private final ConfProperties confProperties = new ConfProperties();
 
 
@@ -147,6 +149,18 @@ public class PgupsTest extends BaseTest {
         admissionsCommitteePage.checkIfCorrectPageOpen()
                 .masterDegreeModuleClick()
                 .tuitionFeesClick();
+    }
+
+    @Description("-----")
+    @Test
+    public void test9() { //todo check
+        open(confProperties.getProperty("test-site"));
+
+        mainPage.checkIfCorrectPageOpen()
+                .pgupsMuseumClick();
+
+        pgupsMuseumPage.checkIfCorrectPageOpen()
+                .planOfScientificEventsClick();
     }
 }
 //                    .searchProductByInputBox(inputText);
