@@ -17,6 +17,8 @@ public class CitilinkTest extends BaseTest {
     private final EducationPage educationPage = new EducationPage();
     private final FacultyContactsPage facultyContactsPage = new FacultyContactsPage();
     private final AitPage aitPage = new AitPage();
+    private final PriorityPage priorityPage = new PriorityPage();
+    private final DigitalDepartmentPage digitalDepartmentPage = new DigitalDepartmentPage();
     private final ConfProperties confProperties = new ConfProperties();
 
 
@@ -104,6 +106,24 @@ public class CitilinkTest extends BaseTest {
         aitPage.checkIfCorrectPageOpen()
                 .checkEmail("ait@pgups.ru");
     }
+
+    @Description("-----")
+    @Test
+    public void test6() { //todo check
+        open(confProperties.getProperty("test-site"));
+
+        mainPage.checkIfCorrectPageOpen()
+                .priorityLogoClick();
+
+        priorityPage.checkIfCorrectPageOpen()
+                .digitalDepartmentButtonClick();
+
+        digitalDepartmentPage.checkIfCorrectPageOpen()
+                .freeProgramsButtonClick()
+                .internetOfThingsTechnologiesButtonClick();
+    }
+
+
 }
 //                    .searchProductByInputBox(inputText);
 
