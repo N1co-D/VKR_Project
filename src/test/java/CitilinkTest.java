@@ -2,10 +2,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.Test;
-import pages.AdmissionsCommitteePage;
-import pages.HabitationPage;
-import pages.MainPage;
-import pages.SchedulePage;
+import pages.*;
 import utilites.ConfProperties;
 
 import java.util.ArrayList;
@@ -19,6 +16,7 @@ public class CitilinkTest extends BaseTest {
     private final SchedulePage schedulePage = new SchedulePage();
     private final HabitationPage habitationPage = new HabitationPage();
     private final AdmissionsCommitteePage admissionsCommitteePage = new AdmissionsCommitteePage();
+    private final EducationPage educationPage = new EducationPage();
     private final ConfProperties confProperties = new ConfProperties();
 
 
@@ -74,6 +72,19 @@ public class CitilinkTest extends BaseTest {
                 .numberOfPaidPlacesForAdmissionDownloadButtonClick();
     }
 
+    @Description("-----")
+    @Test
+    public void test4() {
+        open(confProperties.getProperty("test-site"));
+
+        mainPage.checkIfCorrectPageOpen()
+                .directionsAndSpecialtiesClick();
+
+        educationPage.checkIfCorrectPageOpen()
+                .masterDegreeProgramsDescriptionsClick()
+                .informationSystemsAndTechnologiesInTransportProgramClick()
+                .informationSystemsAndTechnologiesInTransportEducationPlanClick("2023");
+    }
 }
 //                    .searchProductByInputBox(inputText);
 
