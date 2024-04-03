@@ -11,6 +11,8 @@ public class AdmissionsCommitteePage extends BasePage {
     private final String pageTitle = "//span[text()='приемной комиссии']/ancestor::h3[text()='Новости ']";
     private final String receptionPlacesNumber = "//a[text()='Количество мест для приема']";
     private final String numberOfPaidPlacesForAdmissionDownloadButton = "//div[contains(text(),'Количество платных мест для приёма по программам бакалавриата, специалитета, магистратуры в 2024 году')]/..//a[text()='Скачать']";
+    private final String masterDegreeModule = "//header[@id='header']//a[text()='Магистратура']";
+    private final String tuitionFees = "//div[@class='tab-pane fade in active']//a[normalize-space(text())='СТОИМОСТЬ ОБУЧЕНИЯ']";
 
     @Step("Открытие страницы авторизации") //todo
     public AdmissionsCommitteePage checkIfCorrectPageOpen() {
@@ -35,6 +37,20 @@ public class AdmissionsCommitteePage extends BasePage {
     @Step("Ввод данных пользователя: электронная почта и пароль")//todo
     public AdmissionsCommitteePage numberOfPaidPlacesForAdmissionDownloadButtonClick() {
         jsClick($x(numberOfPaidPlacesForAdmissionDownloadButton));
+        makeScreenshot();
+        return this;
+    }
+
+    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    public AdmissionsCommitteePage masterDegreeModuleClick() {
+        jsClick($x(masterDegreeModule));
+        makeScreenshot();
+        return this;
+    }
+
+    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    public AdmissionsCommitteePage tuitionFeesClick() {
+        jsClick($x(tuitionFees));
         makeScreenshot();
         return this;
     }

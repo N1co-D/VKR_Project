@@ -2,10 +2,7 @@ package pages;
 
 import com.codeborne.selenide.ex.UIAssertionError;
 import io.qameta.allure.Step;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -28,6 +25,7 @@ public class MainPage extends BasePage {
     private final String schedule = "//span[text()='ПГУПС.Расписание']/..";
     private final String dormitories = "//a[text()='Общежития']";
     private final String admissionsCommitteeWebsite = "//a[text()='Сайт приемной комиссии']";
+    private final String admissionsCommitteeWebsiteFromModule = "//div[@data-menu='/priem_2020/']//a[text()='Сайт приемной комиссии']";
     private final String directionsAndSpecialties = "//a[text()='Направления и специальности']";
     private final String facultyContacts = "//a[text()='Контакты факультетов']";
     private final String scientificConferences = "//a[text()='Научные конференции']";
@@ -115,8 +113,9 @@ public class MainPage extends BasePage {
     }
 
     @Step("Ввод данных пользователя: электронная почта и пароль")//todo
-    public MainPage admissionCommitteeClick() {
+    public MainPage admissionCommitteeModuleClick() {
         jsClick($x(admissionCommittee));
+        jsClick($x(admissionsCommitteeWebsiteFromModule));
         makeScreenshot();
         return this;
     }

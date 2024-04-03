@@ -135,6 +135,19 @@ public class PgupsTest extends BaseTest {
         scientificConferencesPage.checkIfCorrectPageOpen()
                 .planOfScientificEventsClick();
     }
+
+    @Description("-----")
+    @Test
+    public void test8() { //todo check
+        open(confProperties.getProperty("test-site"));
+
+        mainPage.checkIfCorrectPageOpen()
+                .admissionCommitteeModuleClick();
+
+        admissionsCommitteePage.checkIfCorrectPageOpen()
+                .masterDegreeModuleClick()
+                .tuitionFeesClick();
+    }
 }
 //                    .searchProductByInputBox(inputText);
 
