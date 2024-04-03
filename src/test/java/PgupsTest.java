@@ -22,6 +22,8 @@ public class PgupsTest extends BaseTest {
     private final DigitalDepartmentPage digitalDepartmentPage = new DigitalDepartmentPage();
     private final ScientificConferencesPage scientificConferencesPage = new ScientificConferencesPage();
     private final PgupsMuseumPage pgupsMuseumPage = new PgupsMuseumPage();
+    private final AdvancedEngineeringSchoolPage advancedEngineeringSchoolPage = new AdvancedEngineeringSchoolPage();
+    private final AutomatedDispatchControlSystemsPage automatedDispatchControlSystemsPage = new AutomatedDispatchControlSystemsPage();
     private final ConfProperties confProperties = new ConfProperties();
 
 
@@ -161,6 +163,27 @@ public class PgupsTest extends BaseTest {
 
         pgupsMuseumPage.checkIfCorrectPageOpen()
                 .planOfScientificEventsClick();
+    }
+
+    @Description("-----")
+    @Test
+    public void test10() { //todo check
+        open(confProperties.getProperty("test-site"));
+
+        mainPage.checkIfCorrectPageOpen()
+                .advancedEngineeringSchoolLogoClick();
+
+        advancedEngineeringSchoolPage.checkIfCorrectPageOpen()
+                .educationModuleClick()
+                .masterDegreeSectionClick()
+                .programDetailsClick();
+
+        List<String> allWindowHandles = new ArrayList<>(WebDriverRunner.getWebDriver().getWindowHandles());
+        String windowToSwitch = allWindowHandles.get(allWindowHandles.size() - 1);
+        WebDriverRunner.getWebDriver().switchTo().window(windowToSwitch);
+
+        automatedDispatchControlSystemsPage.checkIfCorrectPageOpen()
+                .checkStartDate("01.09.2025");
     }
 }
 //                    .searchProductByInputBox(inputText);
