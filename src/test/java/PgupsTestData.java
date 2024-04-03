@@ -2,7 +2,7 @@ import org.junit.jupiter.params.provider.Arguments;
 
 import java.util.stream.Stream;
 
-public class CitilinkTestData {
+public class PgupsTestData {
     static Stream<Arguments> dataForComparisonTest() {
         String testLaptop = "Ноутбук Lenovo IdeaPad 1 15AMN7 82VG00LSUE, 15.6\", TN, AMD Ryzen 3 7320U, 4-ядерный, 8ГБ LPDDR5, 256ГБ SSD, AMD Radeon 610M, серый";
         String productCategory = "Ноутбуки Lenovo";

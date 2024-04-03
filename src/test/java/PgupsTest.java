@@ -9,7 +9,7 @@ import java.util.List;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class CitilinkTest extends BaseTest {
+public class PgupsTest extends BaseTest {
     private final MainPage mainPage = new MainPage();
     private final SchedulePage schedulePage = new SchedulePage();
     private final HabitationPage habitationPage = new HabitationPage();
@@ -19,12 +19,13 @@ public class CitilinkTest extends BaseTest {
     private final AitPage aitPage = new AitPage();
     private final PriorityPage priorityPage = new PriorityPage();
     private final DigitalDepartmentPage digitalDepartmentPage = new DigitalDepartmentPage();
+    private final ScientificConferencesPage scientificConferencesPage = new ScientificConferencesPage();
     private final ConfProperties confProperties = new ConfProperties();
 
 
     //    @Description("-----")
     //    @ParameterizedTest
-//    @MethodSource("ru.citilink.CitilinkTestData#checkIncreaseInQuantityWhenAddProductsToCartTestData")
+//    @MethodSource("ru.citilink.PgupsTestData#checkIncreaseInQuantityWhenAddProductsToCartTestData")
 //    public void checkIncreaseInQuantityWhenAddProductsToCart(String inputText,
 //                                                             String rawMemoryRequiredParameter,
 //                                                             String diskRequiredParameter,
@@ -123,7 +124,17 @@ public class CitilinkTest extends BaseTest {
                 .internetOfThingsTechnologiesButtonClick();
     }
 
+    @Description("-----")
+    @Test
+    public void test7() { //todo check
+        open(confProperties.getProperty("test-site"));
 
+        mainPage.checkIfCorrectPageOpen()
+                .scientificConferencesClick();
+
+        scientificConferencesPage.checkIfCorrectPageOpen()
+                .planOfScientificEventsClick();
+    }
 }
 //                    .searchProductByInputBox(inputText);
 
@@ -141,7 +152,7 @@ public class CitilinkTest extends BaseTest {
 //}
 
 //    @ParameterizedTest
-//    @MethodSource("ru.citilink.CitilinkTestData#dataForComparisonTest")
+//    @MethodSource("ru.citilink.PgupsTestData#dataForComparisonTest")
 //    public void checkAddProductToCompare(String testLaptop, String productCategory) {
 //        open(confProperties.getProperty("test-site"));
 //        mainPage.inputBoxWriteText("lenovo").productSearchExtraResultListClick(productCategory);
@@ -167,7 +178,7 @@ public class CitilinkTest extends BaseTest {
 //    }
 //
 //    @ParameterizedTest
-//    @MethodSource("ru.citilink.CitilinkTestData#checkFilterProductsByParametersTestData")
+//    @MethodSource("ru.citilink.PgupsTestData#checkFilterProductsByParametersTestData")
 //    public void checkFilterProductsByParameters(String categoryName,
 //                                                String brandFilterCategory,
 //                                                String screenDiagonalFilterCategory,
@@ -189,7 +200,7 @@ public class CitilinkTest extends BaseTest {
 //
 //    @Description("TC-ID7 Проверка увеличения количества добавленных в корзину товаров")
 //    @ParameterizedTest
-//    @MethodSource("ru.citilink.CitilinkTestData#checkIncreaseInQuantityWhenAddProductsToCartTestData")
+//    @MethodSource("ru.citilink.PgupsTestData#checkIncreaseInQuantityWhenAddProductsToCartTestData")
 //    public void checkIncreaseInQuantityWhenAddProductsToCart(String inputText,
 //                                                             String rawMemoryRequiredParameter,
 //                                                             String diskRequiredParameter,
@@ -214,7 +225,7 @@ public class CitilinkTest extends BaseTest {
 //    }
 //
 //    @ParameterizedTest
-//    @MethodSource("ru.citilink.CitilinkTestData#dataForComparisonTest")
+//    @MethodSource("ru.citilink.PgupsTestData#dataForComparisonTest")
 //    public void checkRemoveProductFromComparison(String testLaptop, String productCategory) {
 //        open(confProperties.getProperty("test-site"));
 //        mainPage.inputBoxWriteText("lenovo")
@@ -243,7 +254,7 @@ public class CitilinkTest extends BaseTest {
 //
 //    @Description("TC-ID8 Проверка добавления товаров в список сравнения")
 //    @ParameterizedTest
-//    @MethodSource("ru.citilink.CitilinkTestData#checkProductAddToCompareSectionTestData")
+//    @MethodSource("ru.citilink.PgupsTestData#checkProductAddToCompareSectionTestData")
 //    public void checkProductAddToCompareSection(int amountOfProductsForAdding) {
 //        open(confProperties.getProperty("test-site"));
 //
@@ -264,7 +275,7 @@ public class CitilinkTest extends BaseTest {
 //
 //    @Description("TC-ID1 Проверка добавления товаров в корзину")
 //    @ParameterizedTest
-//    @MethodSource("ru.citilink.CitilinkTestData#checkProductAddToCartTestData")
+//    @MethodSource("ru.citilink.PgupsTestData#checkProductAddToCartTestData")
 //    public void checkProductAddToCart(String inputText,
 //                                      String productFromDropDownList,
 //                                      String observedProduct,
@@ -287,7 +298,7 @@ public class CitilinkTest extends BaseTest {
 //
 //    @Description("TC-ID2 Проверка удаления товара из корзины")
 //    @ParameterizedTest
-//    @MethodSource("ru.citilink.CitilinkTestData#checkTheDeletingOfProductFromCartTestData")
+//    @MethodSource("ru.citilink.PgupsTestData#checkTheDeletingOfProductFromCartTestData")
 //    public void checkTheDeletingOfProductFromCart(String inputText,
 //                                                  String productFromDropDownList,
 //                                                  String observedProduct) {
@@ -317,7 +328,7 @@ public class CitilinkTest extends BaseTest {
 //    }
 //
 //    @ParameterizedTest
-//    @MethodSource("ru.citilink.CitilinkTestData#checkItemAddToCartTestData")
+//    @MethodSource("ru.citilink.PgupsTestData#checkItemAddToCartTestData")
 //    public void checkItemAddToCart(String productName) {
 //        open(confProperties.getProperty("test-site"));
 //
@@ -331,7 +342,7 @@ public class CitilinkTest extends BaseTest {
 //    }
 //
 //    @ParameterizedTest
-//    @MethodSource("ru.citilink.CitilinkTestData#dataForCheckCorrectReflection")
+//    @MethodSource("ru.citilink.PgupsTestData#dataForCheckCorrectReflection")
 //    public void checkCorrectReflectionProductNameInAccordanceWithFilterParameters(String searchedProduct,
 //                                                                                  String sortingParameter,
 //                                                                                  String rating,
@@ -364,7 +375,7 @@ public class CitilinkTest extends BaseTest {
 //    }
 //
 //    @ParameterizedTest
-//    @MethodSource("ru.citilink.CitilinkTestData#checkProductNameAfterFilterParamDataTest")
+//    @MethodSource("ru.citilink.PgupsTestData#checkProductNameAfterFilterParamDataTest")
 //    public void checkProductNameAfterFilterParam(String categoryName,
 //                                                 String subcategoryName,
 //                                                 String brandName,
