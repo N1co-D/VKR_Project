@@ -2,6 +2,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.Test;
+import pages.HabitationPage;
 import pages.MainPage;
 import pages.SchedulePage;
 import utilites.ConfProperties;
@@ -15,6 +16,7 @@ import static com.codeborne.selenide.Selenide.open;
 public class CitilinkTest extends BaseTest {
     private final MainPage mainPage = new MainPage();
     private final SchedulePage schedulePage = new SchedulePage();
+    private final HabitationPage habitationPage = new HabitationPage();
     private final ConfProperties confProperties = new ConfProperties();
 
 
@@ -28,7 +30,7 @@ public class CitilinkTest extends BaseTest {
 //                                                             String expectedAmountOfProduct) {
     @Description("-----")
     @Test
-    public void checkIncreaseInQuantityWhenAddProductsToCart() {
+    public void test1() {
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
@@ -42,6 +44,19 @@ public class CitilinkTest extends BaseTest {
                 .searchByGroup("ИСМ-310")
                 .resultGroupClick("ИСМ-310")
                 .checkPairName("Среда", "6", "Модели информационных систем");
+    }
+
+    @Description("-----")
+    @Test
+    public void test2() {
+        open(confProperties.getProperty("test-site"));
+
+        mainPage.checkIfCorrectPageOpen()
+                .dormitoriesClick();
+
+        habitationPage.checkIfCorrectPageOpen()
+                .dormitoryClick("1")
+                .checkDormitoryAddress("г. Санкт Петербург, ул. 7-я Красноармейская, д.12");
     }
 }
 //                    .searchProductByInputBox(inputText);

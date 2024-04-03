@@ -18,7 +18,7 @@ public class MainPage extends BasePage {
     private final String priorityLogo = "//a[@title='Приоритет 2030']";
     private final String advancedEngineeringSchoolLogo = "//a[@title='Передовая инженерная школа']";
     private final String pgupsResources = "//span[text()='Ресурсы ПГУПС']";
-    private final String forStudents = "//a[text()='Студентам']/ancestor::div[@class='dropdown']";
+    private final String forStudents = "//a[text()='Студентам']/ancestor::div[@class='dropdown']/a";
     private final String forApplicants = "//a[text()='Абитуриентам']/ancestor::div[@class='dropdown']";
     private final String educationModule = "//a[text()='Образование']/ancestor::li[@data-for-menu='/education/']";
     private final String contactsModule = "//a[text()='Контакты']/ancestor::li[@data-for-menu='/contacts/']";
@@ -26,7 +26,7 @@ public class MainPage extends BasePage {
     private final String admissionCommittee = "//a[text()='Приемная комиссия']/ancestor::li[contains(@data-for-menu,'priem')]";
     private final String cultureAndSportsModule = "//a[text()='Культура и спорт']/ancestor::li[@data-for-menu='/culture-and-sport/']";
     private final String schedule = "//span[text()='ПГУПС.Расписание']/..";
-    private final String dormitories = "//a[text()='Общежития']/..";
+    private final String dormitories = "//a[text()='Общежития']";
     private final String admissionsCommitteeWebsite = "//a[text()='Сайт приемной комиссии']/..";
     private final String directionsAndSpecialties = "//a[text()='Направления и специальности']/..";
     private final String facultyContacts = "//a[text()='Контакты факультетов']/..";
