@@ -1,4 +1,3 @@
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.Test;
@@ -7,7 +6,6 @@ import utilites.ConfProperties;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import static com.codeborne.selenide.Selenide.open;
 
