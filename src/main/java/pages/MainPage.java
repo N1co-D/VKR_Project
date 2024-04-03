@@ -26,7 +26,7 @@ public class MainPage extends BasePage {
     private final String admissionCommittee = "//a[text()='Приемная комиссия']/ancestor::li[contains(@data-for-menu,'priem')]";
     private final String cultureAndSportsModule = "//a[text()='Культура и спорт']/ancestor::li[@data-for-menu='/culture-and-sport/']";
     private final String schedule = "//span[text()='ПГУПС.Расписание']/..";
-    private final String dormitories = "//a[text()='Общежития']/..";
+    private final String dormitories = "//a[text()='Общежития']";
     private final String admissionsCommitteeWebsite = "//a[text()='Сайт приемной комиссии']";
     private final String directionsAndSpecialties = "//a[text()='Направления и специальности']";
     private final String facultyContacts = "//a[text()='Контакты факультетов']";
