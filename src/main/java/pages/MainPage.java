@@ -29,7 +29,7 @@ public class MainPage extends BasePage {
     private final String dormitories = "//a[text()='Общежития']/..";
     private final String admissionsCommitteeWebsite = "//a[text()='Сайт приемной комиссии']";
     private final String directionsAndSpecialties = "//a[text()='Направления и специальности']";
-    private final String facultyContacts = "//a[text()='Контакты факультетов']/..";
+    private final String facultyContacts = "//a[text()='Контакты факультетов']";
     private final String scientificConferences = "//a[text()='Научные конференции']/..";
     private final String pgupsMuseum = "//div[@data-menu='/culture-and-sport/']//a[text()='Музей ПГУПС']/..";
 

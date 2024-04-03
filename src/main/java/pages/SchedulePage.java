@@ -5,8 +5,8 @@ import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
-import static com.codeborne.selenide.Selenide.actions;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  * Страница "Расписание"
@@ -53,13 +53,13 @@ public class SchedulePage extends BasePage {
                 .getText();
     }
 
-    public SchedulePage checkPairName(String dayOfWeek, String pairNumber, String expectedPairtName) { //todo
+    public SchedulePage checkPairName(String dayOfWeek, String pairNumber, String expectedPairName) { //todo
         String currentPairName = getPairName(dayOfWeek, pairNumber);
-        assertEquals(expectedPairtName, currentPairName,
+        assertEquals(expectedPairName, currentPairName,
                 String.format("Фактическое имя пары = %s " +
                                 " не соответствует ожидаемой = %s",
                         currentPairName,
-                        expectedPairtName));
+                        expectedPairName));
         return this;
     }
 }

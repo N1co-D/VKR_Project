@@ -17,6 +17,8 @@ public class CitilinkTest extends BaseTest {
     private final HabitationPage habitationPage = new HabitationPage();
     private final AdmissionsCommitteePage admissionsCommitteePage = new AdmissionsCommitteePage();
     private final EducationPage educationPage = new EducationPage();
+    private final FacultyContactsPage facultyContactsPage = new FacultyContactsPage();
+    private final AitPage aitPage = new AitPage();
     private final ConfProperties confProperties = new ConfProperties();
 
 
@@ -84,6 +86,25 @@ public class CitilinkTest extends BaseTest {
                 .masterDegreeProgramsDescriptionsClick()
                 .informationSystemsAndTechnologiesInTransportProgramClick()
                 .informationSystemsAndTechnologiesInTransportEducationPlanClick("2023");
+    }
+
+    @Description("-----")
+    @Test
+    public void test5() {
+        open(confProperties.getProperty("test-site"));
+
+        mainPage.checkIfCorrectPageOpen()
+                .facultyContactsClick();
+
+        facultyContactsPage.checkIfCorrectPageOpen()
+                .aitModuleClick();
+
+        List<String> allWindowHandles = new ArrayList<>(WebDriverRunner.getWebDriver().getWindowHandles());
+        String windowToSwitch = allWindowHandles.get(allWindowHandles.size() - 1);
+        WebDriverRunner.getWebDriver().switchTo().window(windowToSwitch);
+
+        aitPage.checkIfCorrectPageOpen()
+                .checkEmail("ait@pgups.ru");
     }
 }
 //                    .searchProductByInputBox(inputText);
