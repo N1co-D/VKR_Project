@@ -17,17 +17,19 @@ public class BaseTest {
         Configuration.browserSize = null;
         Configuration.pageLoadStrategy = "none";
 
-        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-        chromePrefs.put("download.default_directory", "src/downloads");
+//        HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+//        chromePrefs.put("download.default_directory", "src/downloads");
 
         DesiredCapabilities cap = new DesiredCapabilities();
         ChromeOptions options = new ChromeOptions();
 
-        options.setExperimentalOption("prefs", chromePrefs);
+//        options.setExperimentalOption("prefs", chromePrefs);
 
         options.addArguments("start-maximized");
         cap.setCapability(ChromeOptions.CAPABILITY, options);
         Configuration.browserCapabilities = cap;
+        Configuration.downloadsFolder = "src/downloads";
+
 //        Configuration.headless = true;
     }
 
