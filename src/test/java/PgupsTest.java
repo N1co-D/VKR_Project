@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.codeborne.selenide.Selenide.open;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PgupsTest extends BaseTest {
     private final MainPage mainPage = new MainPage();
@@ -76,6 +77,14 @@ public class PgupsTest extends BaseTest {
         admissionsCommitteePage.checkIfCorrectPageOpen()
                 .receptionPlacesNumber()
                 .numberOfPaidPlacesForAdmissionDownloadButtonClick();
+
+        String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
+        String expectedUrl = "https://www.pgups.ru/upload/medialibrary/e15/bqk4ibxl0e5vocvg62nc3op7v0ml1rrm/plan_priema_pgups_bak_spec_mag_2024_platnoe.pdf";
+        assertEquals(expectedUrl, currentUrl,
+                String.format("Фактический URL-адрес = %s " +
+                                " не соответствует ожидаемому = %s",
+                        currentUrl,
+                        expectedUrl));
     }
 
     @Description("-----")
@@ -91,6 +100,14 @@ public class PgupsTest extends BaseTest {
                 .masterDegreeProgramsDescriptionsClick()
                 .informationSystemsAndTechnologiesInTransportProgramClick()
                 .informationSystemsAndTechnologiesInTransportEducationPlanClick(year);
+
+        String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
+        String expectedUrl = "https://www.pgups.ru/upload/medialibrary/5c3/qxr9wpnvxsy27y6nzqyb03bkxvrxiix3/ucheb_plan_ism_2023.pdf";
+        assertEquals(expectedUrl, currentUrl,
+                String.format("Фактический URL-адрес = %s " +
+                                " не соответствует ожидаемому = %s",
+                        currentUrl,
+                        expectedUrl));
     }
 
     @Description("-----")
@@ -127,6 +144,14 @@ public class PgupsTest extends BaseTest {
         digitalDepartmentPage.checkIfCorrectPageOpen()
                 .freeProgramsButtonClick()
                 .internetOfThingsTechnologiesButtonClick();
+
+        String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
+        String expectedUrl = "https://prioritet2030.pgups.ru/pages/digital-department/digital-department/digital-department.html#program02";
+        assertEquals(expectedUrl, currentUrl,
+                String.format("Фактический URL-адрес = %s " +
+                                " не соответствует ожидаемому = %s",
+                        currentUrl,
+                        expectedUrl));
     }
 
     @Description("-----")

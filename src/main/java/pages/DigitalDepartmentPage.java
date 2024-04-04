@@ -1,10 +1,13 @@
 package pages;
 
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.ex.UIAssertionError;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
+import static com.codeborne.selenide.Selenide.actions;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class DigitalDepartmentPage extends BasePage {
@@ -37,6 +40,7 @@ public class DigitalDepartmentPage extends BasePage {
     @Step("Ввод данных пользователя: электронная почта и пароль")//todo
     public DigitalDepartmentPage internetOfThingsTechnologiesButtonClick() {
         $x(programListSection).scrollTo();
+        Selenide.sleep(2000);
         jsClick($x(internetOfThingsTechnologiesButton));
         return this;
     }
