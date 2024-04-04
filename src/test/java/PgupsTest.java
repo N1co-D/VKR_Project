@@ -60,16 +60,18 @@ public class PgupsTest extends BaseTest {
     }
 
     @Description("-----")
-    @Test
-    public void test2() {
+    @ParameterizedTest
+    @MethodSource("PgupsTestData#test2TestData")
+    public void test2(String dormitoryNumber,
+                      String expectedDormitoryAddress) {
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
                 .dormitoriesClick();
 
         habitationPage.checkIfCorrectPageOpen()
-                .dormitoryClick("1")
-                .checkDormitoryAddress("г. Санкт Петербург, ул. 7-я Красноармейская, д.12");
+                .dormitoryClick(dormitoryNumber)
+                .checkDormitoryAddress(expectedDormitoryAddress);
     }
 
     @Description("-----")

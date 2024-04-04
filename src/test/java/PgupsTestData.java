@@ -13,11 +13,9 @@ public class PgupsTestData {
     }
 
     static Stream<Arguments> test2TestData() {
-        String inputText = "Переходники";
-        String productFromDropDownList = "Переходники на евровилку";
-        String observedProduct = "Адаптер-переходник на евровилку PREMIER 11626/20, темно-серый";
-        String expectedProductCode = "1860968";
-        return Stream.of(Arguments.of(inputText, productFromDropDownList, observedProduct, expectedProductCode));
+        String dormitoryNumber = "1";
+        String expectedDormitoryAddress = "г. Санкт Петербург, ул. 7-я Красноармейская, д.12";
+        return Stream.of(Arguments.of(dormitoryNumber, expectedDormitoryAddress));
     }
 
     static Stream<Arguments> test4TestData() {
