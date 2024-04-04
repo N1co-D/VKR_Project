@@ -37,8 +37,9 @@ public class AdmissionsCommitteePage extends BasePage {
     }
 
     @Step("Ввод данных пользователя: электронная почта и пароль")//todo
-    public AdmissionsCommitteePage numberOfPaidPlacesForAdmissionDownloadButtonClick() {
+    public AdmissionsCommitteePage numberOfPaidPlacesForAdmissionDownloadButtonClick(String fileName) {
         File report = $x(numberOfPaidPlacesForAdmissionDownloadButton).download();
+        checkIfFileExist(fileName);
         return this;
     }
 
@@ -50,8 +51,9 @@ public class AdmissionsCommitteePage extends BasePage {
     }
 
     @Step("Ввод данных пользователя: электронная почта и пароль")//todo
-    public AdmissionsCommitteePage tuitionFeesClick() {
+    public AdmissionsCommitteePage tuitionFeesClick(String fileName) {
         File report = $x(tuitionFees).download();
+        checkIfFileExist(fileName);
         return this;
     }
 }

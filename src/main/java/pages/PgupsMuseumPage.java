@@ -27,8 +27,9 @@ public class PgupsMuseumPage extends BasePage {
     }
 
     @Step("Ввод данных пользователя: электронная почта и пароль")//todo
-    public PgupsMuseumPage planOfScientificEventsClick() {
+    public PgupsMuseumPage planOfScientificEventsClick(String fileName) {
         File report = $x(applicationForGuidedTour).download();
+        checkIfFileExist(fileName);
         return this;
     }
 }

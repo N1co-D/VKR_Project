@@ -27,8 +27,9 @@ public class ScientificConferencesPage extends BasePage {
     }
 
     @Step("Ввод данных пользователя: электронная почта и пароль")//todo
-    public ScientificConferencesPage planOfScientificEventsClick() {
+    public ScientificConferencesPage planOfScientificEventsClick(String fileName) {
         File report = $x(planOfScientificEvents).download();
+        checkIfFileExist(fileName);
         return this;
     }
 }

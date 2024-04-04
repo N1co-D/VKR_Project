@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class EducationPage extends BasePage {
     private final String pageTitle = "//h3[@class='title']/span[text()='Образование']";//todo
-    private final String masterDegreeProgramsDescriptions  = "//h4[contains(text(),'реализуемых уровнях образования')]//following-sibling::div[@class='no-green-toggler']//a[text()='Магистратура']";//todo
+    private final String masterDegreeProgramsDescriptions = "//h4[contains(text(),'реализуемых уровнях образования')]//following-sibling::div[@class='no-green-toggler']//a[text()='Магистратура']";//todo
     private final String informationSystemsAndTechnologiesInTransportProgram = "//span[text()='Информационные системы и технологии на транспорте']";//todo
     private final String informationSystemsAndTechnologiesInTransportEducationPlan = "//h7[text()=' Информационные системы и технологии']/ancestor::div[contains(@class,'education_card')]//td[text()='%s']/../td[@itemprop='educationPlan']/a[1]";//todo
 
@@ -43,8 +43,9 @@ public class EducationPage extends BasePage {
     }
 
     @Step("Ввод данных пользователя: электронная почта и пароль")//todo
-    public EducationPage informationSystemsAndTechnologiesInTransportEducationPlanClick(String year) {
+    public EducationPage informationSystemsAndTechnologiesInTransportEducationPlanClick(String year, String fileName) {
         File report = $x(String.format(informationSystemsAndTechnologiesInTransportEducationPlan, year)).download();
+        checkIfFileExist(fileName);
         return this;
     }
 }

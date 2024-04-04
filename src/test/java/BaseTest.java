@@ -5,8 +5,6 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import utilites.ConfProperties;
 
-import java.util.HashMap;
-
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class BaseTest {
