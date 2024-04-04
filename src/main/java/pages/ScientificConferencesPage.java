@@ -28,7 +28,7 @@ public class ScientificConferencesPage extends BasePage {
     @Step("Ввод данных пользователя: электронная почта и пароль")//todo
     public ScientificConferencesPage planOfScientificEventsClick() {
         jsClick($x(planOfScientificEvents));
-//        Selenide.sleep(5000);
+        Selenide.sleep(5000);
         return this;
     }
 }
