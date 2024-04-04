@@ -94,8 +94,9 @@ public class PgupsTest extends BaseTest {
     }
 
     @Description("-----")
-    @Test
-    public void test5() {
+    @ParameterizedTest
+    @MethodSource("PgupsTestData#test5TestData")
+    public void test5(String expectedEmail) {
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
@@ -109,7 +110,7 @@ public class PgupsTest extends BaseTest {
         WebDriverRunner.getWebDriver().switchTo().window(windowToSwitch);
 
         aitPage.checkIfCorrectPageOpen()
-                .checkEmail("ait@pgups.ru");
+                .checkEmail(expectedEmail);
     }
 
     @Description("-----")
@@ -166,8 +167,9 @@ public class PgupsTest extends BaseTest {
     }
 
     @Description("-----")
-    @Test
-    public void test10() { //todo check
+    @ParameterizedTest
+    @MethodSource("PgupsTestData#test10TestData")
+    public void test10(String expectedStartDate) { //todo check
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
@@ -183,7 +185,7 @@ public class PgupsTest extends BaseTest {
         WebDriverRunner.getWebDriver().switchTo().window(windowToSwitch);
 
         automatedDispatchControlSystemsPage.checkIfCorrectPageOpen()
-                .checkStartDate("01.09.2025");
+                .checkStartDate(expectedStartDate);
     }
 }
 //                    .searchProductByInputBox(inputText);
