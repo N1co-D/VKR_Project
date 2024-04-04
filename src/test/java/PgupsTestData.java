@@ -4,11 +4,12 @@ import java.util.stream.Stream;
 
 public class PgupsTestData {
     static Stream<Arguments> test1TestData() {
-        String inputText = "Переходники";
-        String productFromDropDownList = "Переходники на евровилку";
-        String observedProduct = "Адаптер-переходник на евровилку PREMIER 11626/20, темно-серый";
-        String expectedProductCode = "1860968";
-        return Stream.of(Arguments.of(inputText, productFromDropDownList, observedProduct, expectedProductCode));
+        String inputText = "ИСМ-310";
+        String searchedGroup = "ИСМ-310";
+        String dayOfWeek = "Среда";
+        String pairNumber = "6";
+        String expectedPairName = "Модели информационных систем";
+        return Stream.of(Arguments.of(inputText, searchedGroup, dayOfWeek, pairNumber, expectedPairName));
     }
 
     static Stream<Arguments> test2TestData() {

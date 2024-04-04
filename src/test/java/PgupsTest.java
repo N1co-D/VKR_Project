@@ -1,6 +1,8 @@
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import pages.*;
 import utilites.ConfProperties;
 
@@ -35,8 +37,13 @@ public class PgupsTest extends BaseTest {
 //                                                             int amountOfProductsForIncrease,
 //                                                             String expectedAmountOfProduct) {
     @Description("-----")
-    @Test
-    public void test1() {
+    @ParameterizedTest
+    @MethodSource("PgupsTestData#test1TestData")
+    public void test1(String inputText,
+                      String searchedGroup,
+                      String dayOfWeek,
+                      String pairNumber,
+                      String expectedPairName) {
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
@@ -47,9 +54,9 @@ public class PgupsTest extends BaseTest {
         WebDriverRunner.getWebDriver().switchTo().window(windowToSwitch);
 
         schedulePage.checkIfCorrectPageOpen()
-                .searchByGroup("ИСМ-310")
-                .resultGroupClick("ИСМ-310")
-                .checkPairName("Среда", "6", "Модели информационных систем");
+                .searchByGroup(inputText)
+                .resultGroupClick(searchedGroup)
+                .checkPairName(dayOfWeek, pairNumber, expectedPairName);
     }
 
     @Description("-----")
