@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.ex.UIAssertionError;
 import io.qameta.allure.Step;
 
@@ -27,6 +28,7 @@ public class ScientificConferencesPage extends BasePage {
     @Step("Ввод данных пользователя: электронная почта и пароль")//todo
     public ScientificConferencesPage planOfScientificEventsClick() {
         jsClick($x(planOfScientificEvents));
+//        Selenide.sleep(5000);
         return this;
     }
 }
