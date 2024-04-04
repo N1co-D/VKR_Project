@@ -19,11 +19,8 @@ public class PgupsTestData {
     }
 
     static Stream<Arguments> test4TestData() {
-        String inputText = "Переходники";
-        String productFromDropDownList = "Переходники на евровилку";
-        String observedProduct = "Адаптер-переходник на евровилку PREMIER 11626/20, темно-серый";
-        String expectedProductCode = "1860968";
-        return Stream.of(Arguments.of(inputText, productFromDropDownList, observedProduct, expectedProductCode));
+        String year = "2023";
+        return Stream.of(Arguments.of(year));
     }
 
     static Stream<Arguments> test5TestData() {

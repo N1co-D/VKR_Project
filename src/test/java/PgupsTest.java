@@ -27,15 +27,6 @@ public class PgupsTest extends BaseTest {
     private final AutomatedDispatchControlSystemsPage automatedDispatchControlSystemsPage = new AutomatedDispatchControlSystemsPage();
     private final ConfProperties confProperties = new ConfProperties();
 
-
-    //    @Description("-----")
-    //    @ParameterizedTest
-//    @MethodSource("ru.citilink.PgupsTestData#checkIncreaseInQuantityWhenAddProductsToCartTestData")
-//    public void checkIncreaseInQuantityWhenAddProductsToCart(String inputText,
-//                                                             String rawMemoryRequiredParameter,
-//                                                             String diskRequiredParameter,
-//                                                             int amountOfProductsForIncrease,
-//                                                             String expectedAmountOfProduct) {
     @Description("-----")
     @ParameterizedTest
     @MethodSource("PgupsTestData#test1TestData")
@@ -88,8 +79,9 @@ public class PgupsTest extends BaseTest {
     }
 
     @Description("-----")
-    @Test
-    public void test4() {
+    @ParameterizedTest
+    @MethodSource("PgupsTestData#test4TestData")
+    public void test4(String year) {
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
@@ -98,7 +90,7 @@ public class PgupsTest extends BaseTest {
         educationPage.checkIfCorrectPageOpen()
                 .masterDegreeProgramsDescriptionsClick()
                 .informationSystemsAndTechnologiesInTransportProgramClick()
-                .informationSystemsAndTechnologiesInTransportEducationPlanClick("2023");
+                .informationSystemsAndTechnologiesInTransportEducationPlanClick(year);
     }
 
     @Description("-----")
