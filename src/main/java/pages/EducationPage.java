@@ -3,6 +3,8 @@ package pages;
 import com.codeborne.selenide.ex.UIAssertionError;
 import io.qameta.allure.Step;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 import static org.junit.jupiter.api.Assertions.fail;
@@ -42,8 +44,7 @@ public class EducationPage extends BasePage {
 
     @Step("Ввод данных пользователя: электронная почта и пароль")//todo
     public EducationPage informationSystemsAndTechnologiesInTransportEducationPlanClick(String year) {
-        jsClick($x(String.format(informationSystemsAndTechnologiesInTransportEducationPlan, year)));
-        makeScreenshot();
+        File report = $x(String.format(informationSystemsAndTechnologiesInTransportEducationPlan, year)).download();
         return this;
     }
 }

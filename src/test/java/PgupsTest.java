@@ -77,14 +77,6 @@ public class PgupsTest extends BaseTest {
         admissionsCommitteePage.checkIfCorrectPageOpen()
                 .receptionPlacesNumber()
                 .numberOfPaidPlacesForAdmissionDownloadButtonClick();
-
-        String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
-        String expectedUrl = "https://www.pgups.ru/upload/medialibrary/e15/bqk4ibxl0e5vocvg62nc3op7v0ml1rrm/plan_priema_pgups_bak_spec_mag_2024_platnoe.pdf";
-        assertEquals(expectedUrl, currentUrl,
-                String.format("Фактический URL-адрес = %s " +
-                                " не соответствует ожидаемому = %s",
-                        currentUrl,
-                        expectedUrl));
     }
 
     @Description("-----")
@@ -100,14 +92,6 @@ public class PgupsTest extends BaseTest {
                 .masterDegreeProgramsDescriptionsClick()
                 .informationSystemsAndTechnologiesInTransportProgramClick()
                 .informationSystemsAndTechnologiesInTransportEducationPlanClick(year);
-
-        String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
-        String expectedUrl = "https://www.pgups.ru/upload/medialibrary/5c3/qxr9wpnvxsy27y6nzqyb03bkxvrxiix3/ucheb_plan_ism_2023.pdf";
-        assertEquals(expectedUrl, currentUrl,
-                String.format("Фактический URL-адрес = %s " +
-                                " не соответствует ожидаемому = %s",
-                        currentUrl,
-                        expectedUrl));
     }
 
     @Description("-----")

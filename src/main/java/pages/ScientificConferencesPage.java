@@ -1,6 +1,5 @@
 package pages;
 
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.ex.UIAssertionError;
 import io.qameta.allure.Step;
 

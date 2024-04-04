@@ -38,8 +38,7 @@ public class AdmissionsCommitteePage extends BasePage {
 
     @Step("Ввод данных пользователя: электронная почта и пароль")//todo
     public AdmissionsCommitteePage numberOfPaidPlacesForAdmissionDownloadButtonClick() {
-        jsClick($x(numberOfPaidPlacesForAdmissionDownloadButton));
-        makeScreenshot();
+        File report = $x(numberOfPaidPlacesForAdmissionDownloadButton).download();
         return this;
     }
 
@@ -53,8 +52,6 @@ public class AdmissionsCommitteePage extends BasePage {
     @Step("Ввод данных пользователя: электронная почта и пароль")//todo
     public AdmissionsCommitteePage tuitionFeesClick() {
         File report = $x(tuitionFees).download();
-//        jsClick($x(tuitionFees));
-//        makeScreenshot();
         return this;
     }
 }
