@@ -2,7 +2,6 @@ import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Description;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import pages.*;
@@ -37,7 +36,7 @@ public class PgupsTest extends BaseTest {
         FileUtils.deleteDirectory(new File("src/downloads"));
         }
 
-    @Description("-----")
+    @Description("Проверка отражения названия ожидаемой пары в соответствии с её порядком и днем недели")
     @ParameterizedTest
     @MethodSource("PgupsTestData#test1TestData")
     public void test1(String inputText,
@@ -60,7 +59,7 @@ public class PgupsTest extends BaseTest {
                 .checkPairName(dayOfWeek, pairNumber, expectedPairName);
     }
 
-    @Description("-----")
+    @Description("Проверка соответствия ожидаемого и фактического адреса общежития")
     @ParameterizedTest
     @MethodSource("PgupsTestData#test2TestData")
     public void test2(String dormitoryNumber,
@@ -75,7 +74,7 @@ public class PgupsTest extends BaseTest {
                 .checkDormitoryAddress(expectedDormitoryAddress);
     }
 
-    @Description("-----")
+    @Description("Скачивание документа с отражением количества платных мест")
     @ParameterizedTest
     @MethodSource("PgupsTestData#test3TestData")
     public void test3(String fileName) {
@@ -89,7 +88,7 @@ public class PgupsTest extends BaseTest {
                 .numberOfPaidPlacesForAdmissionDownloadButtonClick(fileName);
     }
 
-    @Description("-----")
+    @Description("Скачивание файла учебного плана в соответствии наименованием направления и года")
     @ParameterizedTest
     @MethodSource("PgupsTestData#test4TestData")
     public void test4(String year, String fileName) {
@@ -104,7 +103,7 @@ public class PgupsTest extends BaseTest {
                 .informationSystemsAndTechnologiesInTransportEducationPlanClick(year, fileName);
     }
 
-    @Description("-----")
+    @Description("Проверка соответствия ожидаемого и фактического адреса электронной почты факультета")
     @ParameterizedTest
     @MethodSource("PgupsTestData#test5TestData")
     public void test5(String expectedEmail) {
@@ -124,10 +123,10 @@ public class PgupsTest extends BaseTest {
                 .checkEmail(expectedEmail);
     }
 
-    @Description("-----")
+    @Description("Проверка открытия программы в модуле 'Приоритет 2030'")
     @ParameterizedTest
     @MethodSource("PgupsTestData#test6TestData")
-    public void test6(String expectedUrl) { //todo check
+    public void test6(String expectedUrl) {
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
@@ -148,10 +147,10 @@ public class PgupsTest extends BaseTest {
                         expectedUrl));
     }
 
-    @Description("-----")
+    @Description("Скачивание документа с планом научных событий")
     @ParameterizedTest
     @MethodSource("PgupsTestData#test7TestData")
-    public void test7(String fileName) { //todo check
+    public void test7(String fileName) {
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
@@ -161,10 +160,10 @@ public class PgupsTest extends BaseTest {
                 .planOfScientificEventsClick(fileName);
     }
 
-    @Description("-----")
+    @Description("Скачивание файла со стоимостью обучения")
     @ParameterizedTest
     @MethodSource("PgupsTestData#test8TestData")
-    public void test8(String fileName) { //todo check
+    public void test8(String fileName) {
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
@@ -175,23 +174,23 @@ public class PgupsTest extends BaseTest {
                 .tuitionFeesClick(fileName);
     }
 
-    @Description("-----")
+    @Description("Скачивание файла с информацией об экскурсиях в Музей ПГУПС")
     @ParameterizedTest
     @MethodSource("PgupsTestData#test9TestData")
-    public void test9(String fileName) { //todo check
+    public void test9(String fileName) {
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
                 .pgupsMuseumClick();
 
         pgupsMuseumPage.checkIfCorrectPageOpen()
-                .planOfScientificEventsClick(fileName);
+                .applicationForGuidedTourClick(fileName);
     }
 
-    @Description("-----")
+    @Description("Проверка соответствия даты начала программы из модуля 'ПИШ'")
     @ParameterizedTest
     @MethodSource("PgupsTestData#test10TestData")
-    public void test10(String expectedStartDate) { //todo check
+    public void test10(String expectedStartDate) {
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
