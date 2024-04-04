@@ -7,9 +7,9 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class FacultyContactsPage extends BasePage{
+public class FacultyContactsPage extends BasePage {
     private final String pageTitle = "//h3[@class='title']/span[text()='Контакты факультетов']";//todo
-    private final String aitModule  = "//span[text()='Контакты факультетов']/../following-sibling::address//a[text()='Автоматизация и интеллектуальные технологии']";//todo
+    private final String aitModule = "//span[text()='Контакты факультетов']/../following-sibling::address//a[text()='Автоматизация и интеллектуальные технологии']";//todo
 
     @Step("Открытие страницы авторизации") //todo
     public FacultyContactsPage checkIfCorrectPageOpen() {
