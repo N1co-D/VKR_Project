@@ -20,6 +20,7 @@ public class BaseTest {
         cap.setCapability(ChromeOptions.CAPABILITY, options);
         Configuration.browserCapabilities = cap;
         Configuration.downloadsFolder = "src/downloads";
+        Configuration.headless = true;
     }
 
     @AfterEach

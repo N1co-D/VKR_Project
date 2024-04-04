@@ -34,11 +34,8 @@ public class PgupsTest extends BaseTest {
 
     @AfterAll
     public static void cleanUp() throws IOException {
-        File directory = new File("src/downloads");
-        if (directory.exists() && directory.isDirectory()) {
-            FileUtils.cleanDirectory(directory);
+        FileUtils.deleteDirectory(new File("src/downloads"));
         }
-    }
 
     @Description("-----")
     @ParameterizedTest
