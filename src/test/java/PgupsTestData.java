@@ -18,14 +18,40 @@ public class PgupsTestData {
         return Stream.of(Arguments.of(dormitoryNumber, expectedDormitoryAddress));
     }
 
+    static Stream<Arguments> test3TestData() {
+        String fileName = "plan_priema_pgups_bak_spec_mag_2024_platnoe.pdf";
+        return Stream.of(Arguments.of(fileName));
+    }
+
     static Stream<Arguments> test4TestData() {
         String year = "2023";
-        return Stream.of(Arguments.of(year));
+        String fileName = "ucheb_plan_ism_2023.pdf";
+        return Stream.of(Arguments.of(year, fileName));
     }
 
     static Stream<Arguments> test5TestData() {
         String expectedEmail = "ait@pgups.ru";
         return Stream.of(Arguments.of(expectedEmail));
+    }
+
+    static Stream<Arguments> test6TestData() {
+        String expectedUrl = "https://prioritet2030.pgups.ru/pages/digital-department/digital-department/digital-department.html#program02";
+        return Stream.of(Arguments.of(expectedUrl));
+    }
+
+    static Stream<Arguments> test7TestData() {
+        String fileName = "Plan-nauchnykh-meropriyatiy-na-2024-god.pdf";
+        return Stream.of(Arguments.of(fileName));
+    }
+
+    static Stream<Arguments> test8TestData() {
+        String fileName = "stoimost_obuch_1_kurs_18042022.pdf";
+        return Stream.of(Arguments.of(fileName));
+    }
+
+    static Stream<Arguments> test9TestData() {
+        String fileName = "sajavka_na_excursiju.doc";
+        return Stream.of(Arguments.of(fileName));
     }
 
     static Stream<Arguments> test10TestData() {

@@ -1,11 +1,15 @@
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Description;
+import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import pages.*;
 import utilites.ConfProperties;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +31,14 @@ public class PgupsTest extends BaseTest {
     private final AdvancedEngineeringSchoolPage advancedEngineeringSchoolPage = new AdvancedEngineeringSchoolPage();
     private final AutomatedDispatchControlSystemsPage automatedDispatchControlSystemsPage = new AutomatedDispatchControlSystemsPage();
     private final ConfProperties confProperties = new ConfProperties();
+
+    @AfterAll
+    public static void cleanUp() throws IOException {
+        File directory = new File("src/downloads");
+        if (directory.exists() && directory.isDirectory()) {
+            FileUtils.cleanDirectory(directory);
+        }
+    }
 
     @Description("-----")
     @ParameterizedTest
@@ -67,8 +79,9 @@ public class PgupsTest extends BaseTest {
     }
 
     @Description("-----")
-    @Test
-    public void test3() {
+    @ParameterizedTest
+    @MethodSource("PgupsTestData#test3TestData")
+    public void test3(String fileName) {
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
@@ -76,13 +89,13 @@ public class PgupsTest extends BaseTest {
 
         admissionsCommitteePage.checkIfCorrectPageOpen()
                 .receptionPlacesNumber()
-                .numberOfPaidPlacesForAdmissionDownloadButtonClick("plan_priema_pgups_bak_spec_mag_2024_platnoe.pdf");
+                .numberOfPaidPlacesForAdmissionDownloadButtonClick(fileName);
     }
 
     @Description("-----")
     @ParameterizedTest
     @MethodSource("PgupsTestData#test4TestData")
-    public void test4(String year) {
+    public void test4(String year, String fileName) {
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
@@ -91,7 +104,7 @@ public class PgupsTest extends BaseTest {
         educationPage.checkIfCorrectPageOpen()
                 .masterDegreeProgramsDescriptionsClick()
                 .informationSystemsAndTechnologiesInTransportProgramClick()
-                .informationSystemsAndTechnologiesInTransportEducationPlanClick(year, "ucheb_plan_ism_2023.pdf");
+                .informationSystemsAndTechnologiesInTransportEducationPlanClick(year, fileName);
     }
 
     @Description("-----")
@@ -115,8 +128,9 @@ public class PgupsTest extends BaseTest {
     }
 
     @Description("-----")
-    @Test
-    public void test6() { //todo check
+    @ParameterizedTest
+    @MethodSource("PgupsTestData#test6TestData")
+    public void test6(String expectedUrl) { //todo check
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
@@ -130,7 +144,6 @@ public class PgupsTest extends BaseTest {
                 .internetOfThingsTechnologiesButtonClick();
 
         String currentUrl = WebDriverRunner.getWebDriver().getCurrentUrl();
-        String expectedUrl = "https://prioritet2030.pgups.ru/pages/digital-department/digital-department/digital-department.html#program02";
         assertEquals(expectedUrl, currentUrl,
                 String.format("Фактический URL-адрес = %s " +
                                 " не соответствует ожидаемому = %s",
@@ -139,20 +152,22 @@ public class PgupsTest extends BaseTest {
     }
 
     @Description("-----")
-    @Test
-    public void test7() { //todo check
+    @ParameterizedTest
+    @MethodSource("PgupsTestData#test7TestData")
+    public void test7(String fileName) { //todo check
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
                 .scientificConferencesClick();
 
         scientificConferencesPage.checkIfCorrectPageOpen()
-                .planOfScientificEventsClick("Plan-nauchnykh-meropriyatiy-na-2024-god.pdf");
+                .planOfScientificEventsClick(fileName);
     }
 
     @Description("-----")
-    @Test
-    public void test8() { //todo check
+    @ParameterizedTest
+    @MethodSource("PgupsTestData#test8TestData")
+    public void test8(String fileName) { //todo check
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
@@ -160,19 +175,20 @@ public class PgupsTest extends BaseTest {
 
         admissionsCommitteePage.checkIfCorrectPageOpen()
                 .masterDegreeModuleClick()
-                .tuitionFeesClick("stoimost_obuch_1_kurs_18042022.pdf");
+                .tuitionFeesClick(fileName);
     }
 
     @Description("-----")
-    @Test
-    public void test9() { //todo check
+    @ParameterizedTest
+    @MethodSource("PgupsTestData#test9TestData")
+    public void test9(String fileName) { //todo check
         open(confProperties.getProperty("test-site"));
 
         mainPage.checkIfCorrectPageOpen()
                 .pgupsMuseumClick();
 
         pgupsMuseumPage.checkIfCorrectPageOpen()
-                .planOfScientificEventsClick("sajavka_na_excursiju.doc");
+                .planOfScientificEventsClick(fileName);
     }
 
     @Description("-----")
