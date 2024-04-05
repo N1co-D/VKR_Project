@@ -10,10 +10,10 @@ import static com.codeborne.selenide.Selenide.$x;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class ScientificConferencesPage extends BasePage {
-    private final String pageTitle = "//h3[@class='title']//span[text()='Научные конференции']";//todo
-    private final String planOfScientificEvents = "//a[contains(@title,'План научных мероприятий')]";//todo
+    private final String pageTitle = "//h3[@class='title']//span[text()='Научные конференции']";
+    private final String planOfScientificEvents = "//a[contains(@title,'План научных мероприятий')]";
 
-    @Step("Открытие страницы авторизации") //todo
+    @Step("Открытие страницы 'Научные конференции'")
     public ScientificConferencesPage checkIfCorrectPageOpen() {
         try {
             $x(pageTitle).should(visible, WAITING_TIME);
@@ -26,7 +26,7 @@ public class ScientificConferencesPage extends BasePage {
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Скачивание файла {fileName}")
     public ScientificConferencesPage planOfScientificEventsClick(String fileName) {
         File report = $x(planOfScientificEvents).download();
         checkIfFileExist(fileName);

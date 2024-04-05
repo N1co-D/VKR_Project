@@ -16,7 +16,7 @@ public class AdmissionsCommitteePage extends BasePage {
     private final String masterDegreeModule = "//header[@id='header']//a[text()='Магистратура']";
     private final String tuitionFees = "//div[@class='tab-pane fade in active']//a[normalize-space(text())='СТОИМОСТЬ ОБУЧЕНИЯ']";
 
-    @Step("Открытие страницы авторизации") //todo
+    @Step("Открытие страницы приемной комиссии")
     public AdmissionsCommitteePage checkIfCorrectPageOpen() {
         try {
             $x(pageTitle).should(visible, WAITING_TIME);
@@ -29,28 +29,28 @@ public class AdmissionsCommitteePage extends BasePage {
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Открытие раздела 'Количество мест для приема'")
     public AdmissionsCommitteePage receptionPlacesNumber() {
         jsClick($x(receptionPlacesNumber));
         makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Скачивание файла {fileName}")
     public AdmissionsCommitteePage numberOfPaidPlacesForAdmissionDownloadButtonClick(String fileName) {
         File report = $x(numberOfPaidPlacesForAdmissionDownloadButton).download();
         checkIfFileExist(fileName);
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Открытие модуля 'Магистратура'")
     public AdmissionsCommitteePage masterDegreeModuleClick() {
         jsClick($x(masterDegreeModule));
         makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Скачивание файла {fileName}")
     public AdmissionsCommitteePage tuitionFeesClick(String fileName) {
         File report = $x(tuitionFees).download();
         checkIfFileExist(fileName);

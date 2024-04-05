@@ -10,12 +10,12 @@ import static com.codeborne.selenide.Selenide.$x;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class EducationPage extends BasePage {
-    private final String pageTitle = "//h3[@class='title']/span[text()='Образование']";//todo
-    private final String masterDegreeProgramsDescriptions = "//h4[contains(text(),'реализуемых уровнях образования')]//following-sibling::div[@class='no-green-toggler']//a[text()='Магистратура']";//todo
-    private final String informationSystemsAndTechnologiesInTransportProgram = "//span[text()='Информационные системы и технологии на транспорте']";//todo
-    private final String informationSystemsAndTechnologiesInTransportEducationPlan = "//h7[text()=' Информационные системы и технологии']/ancestor::div[contains(@class,'education_card')]//td[text()='%s']/../td[@itemprop='educationPlan']/a[1]";//todo
+    private final String pageTitle = "//h3[@class='title']/span[text()='Образование']";
+    private final String masterDegreeProgramsDescriptions = "//h4[contains(text(),'реализуемых уровнях образования')]//following-sibling::div[@class='no-green-toggler']//a[text()='Магистратура']";
+    private final String informationSystemsAndTechnologiesInTransportProgram = "//span[text()='Информационные системы и технологии на транспорте']";
+    private final String informationSystemsAndTechnologiesInTransportEducationPlan = "//h7[text()=' Информационные системы и технологии']/ancestor::div[contains(@class,'education_card')]//td[text()='%s']/../td[@itemprop='educationPlan']/a[1]";
 
-    @Step("Открытие страницы авторизации") //todo
+    @Step("Открытие страницы 'Образование'")
     public EducationPage checkIfCorrectPageOpen() {
         try {
             $x(pageTitle).should(visible, WAITING_TIME);
@@ -28,21 +28,21 @@ public class EducationPage extends BasePage {
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Выбор раздела 'Магистратура'")
     public EducationPage masterDegreeProgramsDescriptionsClick() {
         jsClick($x(masterDegreeProgramsDescriptions));
         makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Выбор раздела 'Информационные системы и технологии на транспорте'")
     public EducationPage informationSystemsAndTechnologiesInTransportProgramClick() {
         jsClick($x(informationSystemsAndTechnologiesInTransportProgram));
         makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Скачивание файла {fileName} в соответствии с годом = {year}")//todo
     public EducationPage informationSystemsAndTechnologiesInTransportEducationPlanClick(String year, String fileName) {
         File report = $x(String.format(informationSystemsAndTechnologiesInTransportEducationPlan, year)).download();
         checkIfFileExist(fileName);

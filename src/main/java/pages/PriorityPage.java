@@ -8,10 +8,10 @@ import static com.codeborne.selenide.Selenide.$x;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class PriorityPage extends BasePage {
-    private final String pageLogo = "//a[@class='logo-priority']";//todo
-    private final String digitalDepartmentButton = "//a[text()='Подробнее']";//todo
+    private final String pageLogo = "//a[@class='logo-priority']";
+    private final String digitalDepartmentButton = "//a[text()='Подробнее']";
 
-    @Step("Открытие страницы авторизации") //todo
+    @Step("Открытие страницы 'Приоритет 2030'")
     public PriorityPage checkIfCorrectPageOpen() {
         try {
             $x(pageLogo).should(visible, WAITING_TIME);
@@ -24,7 +24,7 @@ public class PriorityPage extends BasePage {
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Выбор раздела 'Цифровая кафедра'")
     public PriorityPage digitalDepartmentButtonClick() {
         jsClick($x(digitalDepartmentButton));
         return this;

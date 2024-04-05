@@ -9,9 +9,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class AutomatedDispatchControlSystemsPage extends BasePage {
-    private final String pageTitle = "//h1[text()='Автоматизированные системы диспетчерского управления']";//todo
-    private final String startDate = "//p[@class='edu-start-date']/span";//todo
+    private final String pageTitle = "//h1[text()='Автоматизированные системы диспетчерского управления']";
+    private final String startDate = "//p[@class='edu-start-date']/span";
 
+    @Step("Открытие страницы 'Автоматизированные системы диспетчерского управления'")
     public AutomatedDispatchControlSystemsPage checkIfCorrectPageOpen() {
         try {
             $x(pageTitle).should(visible, WAITING_TIME);
@@ -24,13 +25,13 @@ public class AutomatedDispatchControlSystemsPage extends BasePage {
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
     private String getStartDate() {
         return $x(startDate).should(visible, WAITING_TIME)
                 .getText();
     }
 
-    public AutomatedDispatchControlSystemsPage checkStartDate(String expectedStartDate) { //todo
+    @Step("Сравнение фактической даты начала программы с ожидаемой = {expectedStartDate}")
+    public AutomatedDispatchControlSystemsPage checkStartDate(String expectedStartDate) {
         String currentStartDate = getStartDate();
         assertEquals(expectedStartDate, currentStartDate,
                 String.format("Фактическое имя пары = %s " +

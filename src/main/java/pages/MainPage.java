@@ -31,7 +31,7 @@ public class MainPage extends BasePage {
     private final String scientificConferences = "//a[text()='Научные конференции']";
     private final String pgupsMuseum = "//div[@data-menu='/culture-and-sport/']//a[text()='Музей ПГУПС']";
 
-    @Step("Открытие страницы авторизации")
+    @Step("Открытие главной страницы")
     public MainPage checkIfCorrectPageOpen() {
         try {
             $x(centralBanner).should(visible, WAITING_TIME);
@@ -44,198 +44,77 @@ public class MainPage extends BasePage {
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Выбор раздела 'Приоритет 2030'")
     public MainPage priorityLogoClick() {
         jsClick($x(priorityLogo));
-        makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Выбор раздела 'ПИШ'")
     public MainPage advancedEngineeringSchoolLogoClick() {
         jsClick($x(advancedEngineeringSchoolLogo));
-        makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
-    public MainPage pgupsResourcesClick() {
+    private MainPage pgupsResourcesClick() {
         jsClick($x(pgupsResources));
         makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Выбор расписания")
     public MainPage scheduleClick() {
         pgupsResourcesClick();
         jsClick($x(schedule));
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Выбор раздела 'Общежития'")
     public MainPage dormitoriesClick() {
         jsClick($x(forStudents));
         jsClick($x(dormitories));
-        makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Выбор раздела 'Сайт приемной комиссии'")
     public MainPage admissionsCommitteeWebsiteClick() {
         jsClick($x(forApplicants));
         jsClick($x(admissionsCommitteeWebsite));
-        makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Выбор раздела 'Направления и специальности'")
     public MainPage directionsAndSpecialtiesClick() {
         jsClick($x(educationModule));
         jsClick($x(directionsAndSpecialties));
-        makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Выбор раздела 'Контакты факультетов'")
     public MainPage facultyContactsClick() {
         jsClick($x(contactsModule));
         jsClick($x(facultyContacts));
-        makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Выбор раздела 'Научные конференции'")
     public MainPage scientificConferencesClick() {
         jsClick($x(scienceModule));
         jsClick($x(scientificConferences));
-        makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Выбор раздела 'Приемная комиссия' через верхнее меню")
     public MainPage admissionCommitteeModuleClick() {
         jsClick($x(admissionCommittee));
         jsClick($x(admissionsCommitteeWebsiteFromModule));
-        makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Выбор раздела 'Музей ПГУПС'")
     public MainPage pgupsMuseumClick() {
         jsClick($x(cultureAndSportsModule));
         jsClick($x(pgupsMuseum));
-        makeScreenshot();
         return this;
     }
-
-//    @Step("Ввод запроса '{searchedProduct}' в поле поиска")
-//    public MainPage inputBoxWriteText(String searchedProduct) {
-//        jsClick($x(productSearchField));
-//        $x(productSearchField).sendKeys(searchedProduct);
-//        makeScreenshot();
-//        return this;
-//    }
-//
-//    @Step("Поиск товара '{searchedProduct}' через поле поиска")
-//    public MainPage searchProductByInputBox(String searchedProduct) {
-//        inputBoxWriteText(searchedProduct);
-//        $x(productSearchField).should(visible, WAITING_TIME)
-//                .pressEnter();
-//        return this;
-//    }
-//
-//    public ResultsPage productSearchExtraResultListClick(String gameName) {
-//        $$x(searchDropDownList).shouldBe(sizeGreaterThan(0), WAITING_TIME)
-//                .findBy(text(gameName)).click();
-//        return new ResultsPage();
-//    }
-//
-//    @Step("Открытие каталога товаров")
-//    public MainPage productCatalogClick() {
-//        jsClick($x(productCatalog));
-//        makeScreenshot();
-//        return this;
-//    }
-//
-//    public boolean compareValueIsDisplayed() {
-//        return $x(compareValue).shouldBe(visible, WAITING_TIME).isDisplayed();
-//    }
-//
-//    public ComparePage compareButtonClick() {
-//        $x(compareButton).shouldBe(visible, WAITING_TIME).click();
-//        return new ComparePage();
-//    }
-//
-//    public MainPage clickPopularCategoryTile(String nameCategory) {
-//        $x(String.format(popularCategoryTile, nameCategory))
-//                .scrollIntoView("{behavior: \"smooth\", block: \"center\", inline: \"nearest\"}")
-//                .should(visible, WAITING_TIME)
-//                .click();
-//        return this;
-//    }
-//
-//    @Step("Выбор категории 'Телевизоры, аудио-видео техника'")
-//    public MainPage televisionsAndAudioVideoEquipmentCategoryClick() {
-//        $x(televisionsAndAudioVideoEquipmentCategory).should(visible, WAITING_TIME);
-//        actions().moveToElement($x(televisionsAndAudioVideoEquipmentCategory)).perform();
-//        makeScreenshot();
-//        return this;
-//    }
-//
-//    @Step("Выбор подкатегории 'Телевизоры OLED'")
-//    public MainPage oledTelevisionsCategoryClick() {
-//        jsClick($x(oledTelevisionsCategory));
-//        return this;
-//    }
-//
-//    @Step("Выбор подсказки '{productFromDropDownList}' при вводе запроса в поле поиска")
-//    public MainPage clickOnProductFromDropDownList(String productFromDropDownList) {
-//        jsClick($x(searchCategoryInDropDownMenu + productFromDropDownList + "']"));
-//        return this;
-//    }
-//
-//    @Step("Переход на страницу корзины через верхнее меню")
-//    public MainPage cartButtonClick() {
-//        jsClick($x(cartButton));
-//        return this;
-//    }
-//
-//    public MainPage enterSearchProductInputLine(String nameProduct) {
-//        $x(productSearchField)
-//                .should(visible, WAITING_TIME)
-//                .val(nameProduct).pressEnter();
-//        return this;
-//    }
-//
-//    public ResultsPage searchButtonClick() {
-//        executeJavaScript("arguments[0].click()",
-//                $x(searchButton).shouldBe(visible, WAITING_TIME));
-//        return new ResultsPage();
-//    }
-//
-//    public MainPage enterProductInputLineAndClickSearchButton(String nameProduct) {
-//        $x(productSearchInputLine)
-//                .should(visible, WAITING_TIME)
-//                .sendKeys(nameProduct);
-//        clickSearchButton();
-//        return this;
-//    }
-//
-//    private void clickSearchButton() {
-//        $x(searchButton)
-//                .should(visible, WAITING_TIME)
-//                .click();
-//    }
-//
-//    public MainPage clickCatalogMenuButton() {
-//        $x(catalogMenuButton).shouldBe(visible, WAITING_TIME).click();
-//        return this;
-//    }
-//
-//    public MainPage clickCatalogCategoryButton(String nameCategory) {
-//        $x(String.format(catalogCategoryButton, nameCategory))
-//                .should(visible, WAITING_TIME)
-//                .click();
-//        return this;
-//    }
 }

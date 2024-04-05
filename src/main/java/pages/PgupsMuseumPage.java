@@ -10,10 +10,10 @@ import static com.codeborne.selenide.Selenide.$x;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class PgupsMuseumPage extends BasePage {
-    private final String pageTitle = "//h3[@class='title']/span[text()='Музей ПГУПС']";//todo
-    private final String applicationForGuidedTour = "//a[text()='Заявка на проведение экскурсии']";//todo
+    private final String pageTitle = "//h3[@class='title']/span[text()='Музей ПГУПС']";
+    private final String applicationForGuidedTour = "//a[text()='Заявка на проведение экскурсии']";
 
-    @Step("Открытие страницы авторизации") //todo
+    @Step("Открытие страницы музея ПГУПС")
     public PgupsMuseumPage checkIfCorrectPageOpen() {
         try {
             $x(pageTitle).should(visible, WAITING_TIME);
@@ -26,7 +26,7 @@ public class PgupsMuseumPage extends BasePage {
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Скачивание файла {fileName}")
     public PgupsMuseumPage applicationForGuidedTourClick(String fileName) {
         File report = $x(applicationForGuidedTour).download();
         checkIfFileExist(fileName);

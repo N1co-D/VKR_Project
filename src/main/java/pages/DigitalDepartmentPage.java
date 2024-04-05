@@ -9,13 +9,13 @@ import static com.codeborne.selenide.Selenide.$x;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class DigitalDepartmentPage extends BasePage {
-    private final String pageLogo = "//img[@class='priority']";//todo
-    private final String learningConditionsSection = "//section[@id='terms']";//todo
-    private final String freePrograms = "//a[text()='бесплатные программы']";//todo
-    private final String programListSection = "//section[@id='programs-list']";//todo
+    private final String pageLogo = "//img[@class='priority']";
+    private final String learningConditionsSection = "//section[@id='terms']";
+    private final String freePrograms = "//a[text()='бесплатные программы']";
+    private final String programListSection = "//section[@id='programs-list']";
     private final String internetOfThingsTechnologiesButton = "//a[@class='programs-link' and contains(text(),'Технологии интернета вещей')]";//todo
 
-    @Step("Открытие страницы авторизации") //todo
+    @Step("Открытие страницы 'Приоритет 2030'")
     public DigitalDepartmentPage checkIfCorrectPageOpen() {
         try {
             $x(pageLogo).should(visible, WAITING_TIME);
@@ -28,18 +28,22 @@ public class DigitalDepartmentPage extends BasePage {
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Открытие бесплатных программ")
     public DigitalDepartmentPage freeProgramsButtonClick() {
         $x(learningConditionsSection).scrollTo();
         jsClick($x(freePrograms));
+        Selenide.sleep(2000);
+        makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Открытие программы 'Технологии интернета вещей'")
     public DigitalDepartmentPage internetOfThingsTechnologiesButtonClick() {
         $x(programListSection).scrollTo();
         Selenide.sleep(2000);
         jsClick($x(internetOfThingsTechnologiesButton));
+        Selenide.sleep(2000);
+        makeScreenshot();
         return this;
     }
 }

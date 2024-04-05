@@ -13,7 +13,7 @@ public class HabitationPage extends BasePage {
     private final String dormitory = "//a[contains(text(),'Общежитие № %s')]";
     private final String dormitoryAddress = "//i[contains(@class,'map')]/../following-sibling::div";
 
-    @Step("Открытие страницы авторизации")
+    @Step("Открытие страницы 'Проживание в общежитии'")
     public HabitationPage checkIfCorrectPageOpen() {
         try {
             $x(pageTitle).should(visible, WAITING_TIME);
@@ -26,20 +26,20 @@ public class HabitationPage extends BasePage {
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Выбор общежития по номеру = {dormitoryNumber}")
     public HabitationPage dormitoryClick(String dormitoryNumber) {
         jsClick($x(String.format(dormitory, dormitoryNumber)));
         makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
     private String getDormitoryAddress() {
         return $x(dormitoryAddress).should(visible, WAITING_TIME)
                 .getText();
     }
 
-    public HabitationPage checkDormitoryAddress(String expectedDormitoryAddress) { //todo
+    @Step("Сравнение фактического адреса общежития в сравнении с ожидаемым = {expectedDormitoryAddress}")
+    public HabitationPage checkDormitoryAddress(String expectedDormitoryAddress) {
         String dormitoryAddress = getDormitoryAddress();
         assertEquals(expectedDormitoryAddress, dormitoryAddress,
                 String.format("Фактический адрес = %s " +

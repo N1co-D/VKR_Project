@@ -9,13 +9,13 @@ import static com.codeborne.selenide.Selenide.actions;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class AdvancedEngineeringSchoolPage extends BasePage {
-    private final String pageTitle = "//a[@class='pish-logo']";//todo
-    private final String educationModule = "//a[normalize-space(text())='Образование']";//todo
-    private final String masterDegreeSection = "//a[@id='magistracy']";//todo
-    private final String automatedDispatchControlSystemsProgram = "//h3[text()='Автоматизированные системы диспетчерского управления']";//todo
-    private final String programDetails = "//h3[text()='Автоматизированные системы диспетчерского управления']/..//a[normalize-space(text())='Подробности']";//todo
+    private final String pageTitle = "//a[@class='pish-logo']";
+    private final String educationModule = "//a[normalize-space(text())='Образование']";
+    private final String masterDegreeSection = "//a[@id='magistracy']";
+    private final String automatedDispatchControlSystemsProgram = "//h3[text()='Автоматизированные системы диспетчерского управления']";
+    private final String programDetails = "//h3[text()='Автоматизированные системы диспетчерского управления']/..//a[normalize-space(text())='Подробности']";
 
-    @Step("Открытие страницы авторизации") //todo
+    @Step("Открытие страницы 'ПИШ'")
     public AdvancedEngineeringSchoolPage checkIfCorrectPageOpen() {
         try {
             $x(pageTitle).should(visible, WAITING_TIME);
@@ -28,22 +28,25 @@ public class AdvancedEngineeringSchoolPage extends BasePage {
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Открытие модуля 'Образование'")
     public AdvancedEngineeringSchoolPage educationModuleClick() {
         jsClick($x(educationModule));
+        makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Открытие раздела 'Магистратура'")
     public AdvancedEngineeringSchoolPage masterDegreeSectionClick() {
         jsClick($x(masterDegreeSection));
+        makeScreenshot();
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
+    @Step("Открытие подробностей программы 'Автоматизированные системы диспетчерского управления'")
     public AdvancedEngineeringSchoolPage programDetailsClick() {
         actions().moveToElement($x(automatedDispatchControlSystemsProgram)).perform();
         jsClick($x(programDetails));
+        makeScreenshot();
         return this;
     }
 }

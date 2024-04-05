@@ -9,10 +9,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class AitPage extends BasePage {
-    private final String pageTitle = "//h3[@class='title']/span[text()='Автоматизация и интеллектуальные технологии']";//todo
-    private final String email = "//a[@itemprop='e-mail']";//todo
+    private final String pageTitle = "//h3[@class='title']/span[text()='Автоматизация и интеллектуальные технологии']";
+    private final String email = "//a[@itemprop='e-mail']";
 
-    @Step("Открытие страницы авторизации") //todo
+    @Step("Открытие страницы факультета 'АИТ'")
     public AitPage checkIfCorrectPageOpen() {
         try {
             $x(pageTitle).should(visible, WAITING_TIME);
@@ -25,13 +25,13 @@ public class AitPage extends BasePage {
         return this;
     }
 
-    @Step("Ввод данных пользователя: электронная почта и пароль")//todo
     private String getEmail() {
         return $x(email).should(visible, WAITING_TIME)
                 .getText();
     }
 
-    public AitPage checkEmail(String expectedEmail) { //todo
+    @Step("Сравнение фактической электронной почты с ожидаемой = {expectedEmail}")
+    public AitPage checkEmail(String expectedEmail) {
         String currentEmail = getEmail();
         assertEquals(expectedEmail, currentEmail,
                 String.format("Фактическое имя пары = %s " +
