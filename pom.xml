@@ -63,11 +63,18 @@
             <artifactId>testng</artifactId>
             <version>7.9.0</version>
         </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>io.qameta.allure</groupId>-->
+<!--            <artifactId>allure-testng</artifactId>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
-            <scope>test</scope>
+            <version>2.26.0</version>
         </dependency>
+
         <dependency>
             <groupId>org.junit.support</groupId>
             <artifactId>testng-engine</artifactId>
