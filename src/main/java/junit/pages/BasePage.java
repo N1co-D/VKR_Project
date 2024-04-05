@@ -1,4 +1,4 @@
-package pages;
+package junit.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Attachment;

@@ -1,11 +1,14 @@
+package junit;
+
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Description;
+import junit.pages.*;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import pages.*;
-import utilites.ConfProperties;
+
+import junit.utilites.ConfProperties;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,7 +41,7 @@ public class PgupsTest extends BaseTest {
 
     @Description("Проверка отражения названия ожидаемой пары в соответствии с её порядком и днем недели")
     @ParameterizedTest
-    @MethodSource("PgupsTestData#test1TestData")
+    @MethodSource("junit.PgupsTestData#test1TestData")
     public void test1(String inputText,
                       String searchedGroup,
                       String dayOfWeek,
@@ -61,7 +64,7 @@ public class PgupsTest extends BaseTest {
 
     @Description("Проверка соответствия ожидаемого и фактического адреса общежития")
     @ParameterizedTest
-    @MethodSource("PgupsTestData#test2TestData")
+    @MethodSource("junit.PgupsTestData#test2TestData")
     public void test2(String dormitoryNumber,
                       String expectedDormitoryAddress) {
         open(confProperties.getProperty("test-site"));
@@ -76,7 +79,7 @@ public class PgupsTest extends BaseTest {
 
     @Description("Скачивание документа с отражением количества платных мест")
     @ParameterizedTest
-    @MethodSource("PgupsTestData#test3TestData")
+    @MethodSource("junit.PgupsTestData#test3TestData")
     public void test3(String fileName) {
         open(confProperties.getProperty("test-site"));
 
@@ -90,7 +93,7 @@ public class PgupsTest extends BaseTest {
 
     @Description("Скачивание файла учебного плана в соответствии наименованием направления и года")
     @ParameterizedTest
-    @MethodSource("PgupsTestData#test4TestData")
+    @MethodSource("junit.PgupsTestData#test4TestData")
     public void test4(String year, String fileName) {
         open(confProperties.getProperty("test-site"));
 
@@ -105,7 +108,7 @@ public class PgupsTest extends BaseTest {
 
     @Description("Проверка соответствия ожидаемого и фактического адреса электронной почты факультета")
     @ParameterizedTest
-    @MethodSource("PgupsTestData#test5TestData")
+    @MethodSource("junit.PgupsTestData#test5TestData")
     public void test5(String expectedEmail) {
         open(confProperties.getProperty("test-site"));
 
@@ -125,7 +128,7 @@ public class PgupsTest extends BaseTest {
 
     @Description("Проверка открытия программы в модуле 'Приоритет 2030'")
     @ParameterizedTest
-    @MethodSource("PgupsTestData#test6TestData")
+    @MethodSource("junit.PgupsTestData#test6TestData")
     public void test6(String expectedUrl) {
         open(confProperties.getProperty("test-site"));
 
@@ -149,7 +152,7 @@ public class PgupsTest extends BaseTest {
 
     @Description("Скачивание документа с планом научных событий")
     @ParameterizedTest
-    @MethodSource("PgupsTestData#test7TestData")
+    @MethodSource("junit.PgupsTestData#test7TestData")
     public void test7(String fileName) {
         open(confProperties.getProperty("test-site"));
 
@@ -162,7 +165,7 @@ public class PgupsTest extends BaseTest {
 
     @Description("Скачивание файла со стоимостью обучения")
     @ParameterizedTest
-    @MethodSource("PgupsTestData#test8TestData")
+    @MethodSource("junit.PgupsTestData#test8TestData")
     public void test8(String fileName) {
         open(confProperties.getProperty("test-site"));
 
@@ -176,7 +179,7 @@ public class PgupsTest extends BaseTest {
 
     @Description("Скачивание файла с информацией об экскурсиях в Музей ПГУПС")
     @ParameterizedTest
-    @MethodSource("PgupsTestData#test9TestData")
+    @MethodSource("junit.PgupsTestData#test9TestData")
     public void test9(String fileName) {
         open(confProperties.getProperty("test-site"));
 
@@ -189,7 +192,7 @@ public class PgupsTest extends BaseTest {
 
     @Description("Проверка соответствия даты начала программы из модуля 'ПИШ'")
     @ParameterizedTest
-    @MethodSource("PgupsTestData#test10TestData")
+    @MethodSource("junit.PgupsTestData#test10TestData")
     public void test10(String expectedStartDate) {
         open(confProperties.getProperty("test-site"));
 

@@ -1,20 +1,18 @@
-package pages;
+package junit.pages;
 
 import com.codeborne.selenide.ex.UIAssertionError;
 import io.qameta.allure.Step;
-
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class ScientificConferencesPage extends BasePage {
-    private final String pageTitle = "//h3[@class='title']//span[text()='Научные конференции']";
-    private final String planOfScientificEvents = "//a[contains(@title,'План научных мероприятий')]";
+public class FacultyContactsPage extends BasePage {
+    private final String pageTitle = "//h3[@class='title']/span[text()='Контакты факультетов']";
+    private final String aitModule = "//span[text()='Контакты факультетов']/../following-sibling::address//a[text()='Автоматизация и интеллектуальные технологии']";
 
-    @Step("Открытие страницы 'Научные конференции'")
-    public ScientificConferencesPage checkIfCorrectPageOpen() {
+    @Step("Открытие страницы 'Контакты факультетов'")
+    public FacultyContactsPage checkIfCorrectPageOpen() {
         try {
             $x(pageTitle).should(visible, WAITING_TIME);
         } catch (UIAssertionError e) {
@@ -26,10 +24,8 @@ public class ScientificConferencesPage extends BasePage {
         return this;
     }
 
-    @Step("Скачивание файла {fileName}")
-    public ScientificConferencesPage planOfScientificEventsClick(String fileName) {
-        File report = $x(planOfScientificEvents).download();
-        checkIfFileExist(fileName);
+    public FacultyContactsPage aitModuleClick() {
+        jsClick($x(aitModule));
         return this;
     }
 }

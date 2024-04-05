@@ -1,18 +1,20 @@
-package pages;
+package junit.pages;
 
 import com.codeborne.selenide.ex.UIAssertionError;
 import io.qameta.allure.Step;
+
+import java.io.File;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class FacultyContactsPage extends BasePage {
-    private final String pageTitle = "//h3[@class='title']/span[text()='Контакты факультетов']";
-    private final String aitModule = "//span[text()='Контакты факультетов']/../following-sibling::address//a[text()='Автоматизация и интеллектуальные технологии']";
+public class PgupsMuseumPage extends BasePage {
+    private final String pageTitle = "//h3[@class='title']/span[text()='Музей ПГУПС']";
+    private final String applicationForGuidedTour = "//a[text()='Заявка на проведение экскурсии']";
 
-    @Step("Открытие страницы 'Контакты факультетов'")
-    public FacultyContactsPage checkIfCorrectPageOpen() {
+    @Step("Открытие страницы музея ПГУПС")
+    public PgupsMuseumPage checkIfCorrectPageOpen() {
         try {
             $x(pageTitle).should(visible, WAITING_TIME);
         } catch (UIAssertionError e) {
@@ -24,8 +26,10 @@ public class FacultyContactsPage extends BasePage {
         return this;
     }
 
-    public FacultyContactsPage aitModuleClick() {
-        jsClick($x(aitModule));
+    @Step("Скачивание файла {fileName}")
+    public PgupsMuseumPage applicationForGuidedTourClick(String fileName) {
+        File report = $x(applicationForGuidedTour).download();
+        checkIfFileExist(fileName);
         return this;
     }
 }

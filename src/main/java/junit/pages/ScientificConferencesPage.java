@@ -1,4 +1,4 @@
-package pages;
+package junit.pages;
 
 import com.codeborne.selenide.ex.UIAssertionError;
 import io.qameta.allure.Step;
@@ -9,12 +9,12 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 import static org.junit.jupiter.api.Assertions.fail;
 
-public class PgupsMuseumPage extends BasePage {
-    private final String pageTitle = "//h3[@class='title']/span[text()='Музей ПГУПС']";
-    private final String applicationForGuidedTour = "//a[text()='Заявка на проведение экскурсии']";
+public class ScientificConferencesPage extends BasePage {
+    private final String pageTitle = "//h3[@class='title']//span[text()='Научные конференции']";
+    private final String planOfScientificEvents = "//a[contains(@title,'План научных мероприятий')]";
 
-    @Step("Открытие страницы музея ПГУПС")
-    public PgupsMuseumPage checkIfCorrectPageOpen() {
+    @Step("Открытие страницы 'Научные конференции'")
+    public ScientificConferencesPage checkIfCorrectPageOpen() {
         try {
             $x(pageTitle).should(visible, WAITING_TIME);
         } catch (UIAssertionError e) {
@@ -27,8 +27,8 @@ public class PgupsMuseumPage extends BasePage {
     }
 
     @Step("Скачивание файла {fileName}")
-    public PgupsMuseumPage applicationForGuidedTourClick(String fileName) {
-        File report = $x(applicationForGuidedTour).download();
+    public ScientificConferencesPage planOfScientificEventsClick(String fileName) {
+        File report = $x(planOfScientificEvents).download();
         checkIfFileExist(fileName);
         return this;
     }

@@ -1,4 +1,4 @@
-package pages;
+package junit.pages;
 
 import com.codeborne.selenide.ex.UIAssertionError;
 import io.qameta.allure.Step;
