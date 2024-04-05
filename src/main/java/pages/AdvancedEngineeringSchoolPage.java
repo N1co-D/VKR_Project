@@ -46,7 +46,6 @@ public class AdvancedEngineeringSchoolPage extends BasePage {
     public AdvancedEngineeringSchoolPage programDetailsClick() {
         actions().moveToElement($x(automatedDispatchControlSystemsProgram)).perform();
         jsClick($x(programDetails));
-        makeScreenshot();
         return this;
     }
 }

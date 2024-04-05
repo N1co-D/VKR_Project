@@ -37,6 +37,7 @@ public class EducationPage extends BasePage {
 
     @Step("Выбор раздела 'Информационные системы и технологии на транспорте'")
     public EducationPage informationSystemsAndTechnologiesInTransportProgramClick() {
+        $x(informationSystemsAndTechnologiesInTransportProgram).scrollTo();
         jsClick($x(informationSystemsAndTechnologiesInTransportProgram));
         makeScreenshot();
         return this;

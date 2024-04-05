@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.ex.UIAssertionError;
 import io.qameta.allure.Step;
 
@@ -46,6 +47,7 @@ public class AdmissionsCommitteePage extends BasePage {
     @Step("Открытие модуля 'Магистратура'")
     public AdmissionsCommitteePage masterDegreeModuleClick() {
         jsClick($x(masterDegreeModule));
+        Selenide.sleep(2000);
         makeScreenshot();
         return this;
     }
