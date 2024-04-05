@@ -64,23 +64,18 @@
             <version>7.9.0</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>io.qameta.allure</groupId>-->
-<!--            <artifactId>allure-testng</artifactId>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
 <!--            <version>2.26.0</version>-->
         </dependency>
 
-        <dependency>
-            <groupId>org.junit.support</groupId>
-            <artifactId>testng-engine</artifactId>
-            <version>1.0.5</version>
-            <scope>test</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.junit.support</groupId>-->
+<!--            <artifactId>testng-engine</artifactId>-->
+<!--            <version>1.0.5</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
     </dependencies>
 
     <dependencyManagement>
