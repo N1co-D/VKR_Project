@@ -58,7 +58,6 @@ public class MainPage extends BasePage {
 
     private MainPage pgupsResourcesClick() {
         jsClick($x(pgupsResources));
-        makeScreenshot();
         return this;
     }
 
