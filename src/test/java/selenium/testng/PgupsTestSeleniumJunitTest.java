@@ -9,7 +9,7 @@ import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
-public class PgupsTestSeleniumJunit extends BaseTest {
+public class PgupsTestSeleniumJunitTest extends BaseTest {
 
     @Description("Проверка отражения названия ожидаемой пары в соответствии с её порядком и днем недели")
     @Test(dataProvider = "test1TestData", dataProviderClass = PgupsTestDataSeleniumJunit.class)

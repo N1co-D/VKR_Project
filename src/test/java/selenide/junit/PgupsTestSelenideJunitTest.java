@@ -17,7 +17,7 @@ import java.util.List;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PgupsTestSelenideJunit extends BaseTest {
+public class PgupsTestSelenideJunitTest extends BaseTest {
     private final MainPage mainPage = new MainPage();
     private final SchedulePage schedulePage = new SchedulePage();
     private final HabitationPage habitationPage = new HabitationPage();

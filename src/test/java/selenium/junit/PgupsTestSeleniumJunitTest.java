@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PgupsTestSeleniumJunit extends BaseTest {
+public class PgupsTestSeleniumJunitTest extends BaseTest {
 
     @DisplayName("Проверка отражения названия ожидаемой пары в соответствии с её порядком и днем недели")
     @ParameterizedTest
