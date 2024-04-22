@@ -15,7 +15,7 @@ public class SchedulePage extends BasePage {
     private final String scheduleLogo = "//div[@id='kt_header_menu_wrapper']//span[contains(text(),'Расписание')]";
     private final String inputBox = "//div[contains(@class,'d-md-block')]//input[@class='form-control']";
     private final String resultGroup = "//a[contains(text(),'%s')]";
-    private final String pairName = "//tr[td/h4[contains(., '%s')] and td[contains(., '%s пара')]]/td[@class='align-middle']//span[@class='mr-1']";
+    private final String pairName = "//h4[contains(., 'Среда')]/ancestor::tr/td[4]//span[@class='mr-1']";
 
     @Step("Открытие страницы расписания")
     public SchedulePage checkIfCorrectPageOpen() {

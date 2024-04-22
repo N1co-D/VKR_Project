@@ -40,7 +40,7 @@ public class PgupsTestSelenideJunit extends BaseTest {
 
     @Description("Проверка отражения названия ожидаемой пары в соответствии с её порядком и днем недели")
     @ParameterizedTest
-    @MethodSource("junit.PgupsTestDataSeleniumJunit#test1TestData")
+    @MethodSource("selenide.junit.PgupsTestData#test1TestData")
     public void test1(String inputText,
                       String searchedGroup,
                       String dayOfWeek,
@@ -63,7 +63,7 @@ public class PgupsTestSelenideJunit extends BaseTest {
 
     @Description("Проверка соответствия ожидаемого и фактического адреса общежития")
     @ParameterizedTest
-    @MethodSource("junit.PgupsTestDataSeleniumJunit#test2TestData")
+    @MethodSource("selenide.junit.PgupsTestData#test2TestData")
     public void test2(String dormitoryNumber,
                       String expectedDormitoryAddress) {
         open(confProperties.getProperty("test-site"));
@@ -78,7 +78,7 @@ public class PgupsTestSelenideJunit extends BaseTest {
 
     @Description("Скачивание документа с отражением количества платных мест")
     @ParameterizedTest
-    @MethodSource("junit.PgupsTestDataSeleniumJunit#test3TestData")
+    @MethodSource("selenide.junit.PgupsTestData#test3TestData")
     public void test3(String fileName) {
         open(confProperties.getProperty("test-site"));
 
@@ -92,7 +92,7 @@ public class PgupsTestSelenideJunit extends BaseTest {
 
     @Description("Скачивание файла учебного плана в соответствии наименованием направления и года")
     @ParameterizedTest
-    @MethodSource("junit.PgupsTestDataSeleniumJunit#test4TestData")
+    @MethodSource("selenide.junit.PgupsTestData#test4TestData")
     public void test4(String year, String fileName) {
         open(confProperties.getProperty("test-site"));
 
@@ -107,7 +107,7 @@ public class PgupsTestSelenideJunit extends BaseTest {
 
     @Description("Проверка соответствия ожидаемого и фактического адреса электронной почты факультета")
     @ParameterizedTest
-    @MethodSource("junit.PgupsTestDataSeleniumJunit#test5TestData")
+    @MethodSource("selenide.junit.PgupsTestData#test5TestData")
     public void test5(String expectedEmail) {
         open(confProperties.getProperty("test-site"));
 
@@ -127,7 +127,7 @@ public class PgupsTestSelenideJunit extends BaseTest {
 
     @Description("Проверка открытия программы в модуле 'Приоритет 2030'")
     @ParameterizedTest
-    @MethodSource("junit.PgupsTestDataSeleniumJunit#test6TestData")
+    @MethodSource("selenide.junit.PgupsTestData#test6TestData")
     public void test6(String expectedUrl) {
         open(confProperties.getProperty("test-site"));
 
@@ -151,7 +151,7 @@ public class PgupsTestSelenideJunit extends BaseTest {
 
     @Description("Скачивание документа с планом научных событий")
     @ParameterizedTest
-    @MethodSource("junit.PgupsTestDataSeleniumJunit#test7TestData")
+    @MethodSource("selenide.junit.PgupsTestData#test7TestData")
     public void test7(String fileName) {
         open(confProperties.getProperty("test-site"));
 
@@ -164,7 +164,7 @@ public class PgupsTestSelenideJunit extends BaseTest {
 
     @Description("Скачивание файла со стоимостью обучения")
     @ParameterizedTest
-    @MethodSource("junit.PgupsTestDataSeleniumJunit#test8TestData")
+    @MethodSource("selenide.junit.PgupsTestData#test8TestData")
     public void test8(String fileName) {
         open(confProperties.getProperty("test-site"));
 
@@ -178,7 +178,7 @@ public class PgupsTestSelenideJunit extends BaseTest {
 
     @Description("Скачивание файла с информацией об экскурсиях в Музей ПГУПС")
     @ParameterizedTest
-    @MethodSource("junit.PgupsTestDataSeleniumJunit#test9TestData")
+    @MethodSource("selenide.junit.PgupsTestData#test9TestData")
     public void test9(String fileName) {
         open(confProperties.getProperty("test-site"));
 
@@ -191,7 +191,7 @@ public class PgupsTestSelenideJunit extends BaseTest {
 
     @Description("Проверка соответствия даты начала программы из модуля 'ПИШ'")
     @ParameterizedTest
-    @MethodSource("junit.PgupsTestDataSeleniumJunit#test10TestData")
+    @MethodSource("selenide.junit.PgupsTestData#test10TestData")
     public void test10(String expectedStartDate) {
         open(confProperties.getProperty("test-site"));
 

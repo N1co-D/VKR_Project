@@ -10,7 +10,7 @@ public class PgupsTestData {
         String searchedGroup = "ИСМ-310";
         String dayOfWeek = "Среда";
         String pairNumber = "6";
-        String expectedPairName = "Модели информационных систем";
+        String expectedPairName = "Управление разработкой ИС на транспорте";
         return new Object[][]{{inputText, searchedGroup, dayOfWeek, pairNumber, expectedPairName}};
     }
 
