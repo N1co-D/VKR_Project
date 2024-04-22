@@ -1,20 +1,18 @@
-package selenium.junit;
+package selenium.testng;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.MethodSource;
-import selenium.junit.pages.*;
+import io.qameta.allure.Description;
+import org.testng.annotations.Test;
+import selenium.testng.pages.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.testng.Assert.assertEquals;
 
 public class PgupsTestSeleniumJunit extends BaseTest {
 
-    @DisplayName("Проверка отражения названия ожидаемой пары в соответствии с её порядком и днем недели")
-    @ParameterizedTest
-    @MethodSource("selenium.junit.PgupsTestData#test1TestData")
+    @Description("Проверка отражения названия ожидаемой пары в соответствии с её порядком и днем недели")
+    @Test(dataProvider = "test1TestData", dataProviderClass = PgupsTestDataSeleniumJunit.class)
     public void test1(String inputText,
                       String searchedGroup,
                       String dayOfWeek,
@@ -40,9 +38,8 @@ public class PgupsTestSeleniumJunit extends BaseTest {
                 .checkPairName(dayOfWeek, pairNumber, expectedPairName);
     }
 
-    @DisplayName("Проверка соответствия ожидаемого и фактического адреса общежития")
-    @ParameterizedTest
-    @MethodSource("selenium.junit.PgupsTestData#test2TestData")
+    @Description("Проверка соответствия ожидаемого и фактического адреса общежития")
+    @Test(dataProvider = "test2TestData", dataProviderClass = PgupsTestDataSeleniumJunit.class)
     public void test2(String dormitoryNumber,
                       String expectedDormitoryAddress) {
         driver.manage().window().maximize();
@@ -60,9 +57,8 @@ public class PgupsTestSeleniumJunit extends BaseTest {
                 .checkDormitoryAddress(expectedDormitoryAddress);
     }
 
-    @DisplayName("Скачивание документа с отражением количества платных мест")
-    @ParameterizedTest
-    @MethodSource("selenium.junit.PgupsTestData#test3TestData")
+    @Description("Скачивание документа с отражением количества платных мест")
+    @Test(dataProvider = "test3TestData", dataProviderClass = PgupsTestDataSeleniumJunit.class)
     public void test3(String expectedUrl) {
         driver.manage().window().maximize();
         driver.get("https://www.pgups.ru/");
@@ -79,9 +75,8 @@ public class PgupsTestSeleniumJunit extends BaseTest {
                 .numberOfPaidPlacesForAdmissionDownloadButtonClick(expectedUrl);
     }
 
-    @DisplayName("Скачивание файла учебного плана в соответствии наименованием направления и года")
-    @ParameterizedTest
-    @MethodSource("selenium.junit.PgupsTestData#test4TestData")
+    @Description("Скачивание файла учебного плана в соответствии наименованием направления и года")
+    @Test(dataProvider = "test4TestData", dataProviderClass = PgupsTestDataSeleniumJunit.class)
     public void test4(String year, String expectedUrl) {
         driver.manage().window().maximize();
         driver.get("https://www.pgups.ru/");
@@ -99,9 +94,8 @@ public class PgupsTestSeleniumJunit extends BaseTest {
                 .informationSystemsAndTechnologiesInTransportEducationPlanClick(year, expectedUrl);
     }
 
-    @DisplayName("Проверка соответствия ожидаемого и фактического адреса электронной почты факультета")
-    @ParameterizedTest
-    @MethodSource("selenium.junit.PgupsTestData#test5TestData")
+    @Description("Проверка соответствия ожидаемого и фактического адреса электронной почты факультета")
+    @Test(dataProvider = "test5TestData", dataProviderClass = PgupsTestDataSeleniumJunit.class)
     public void test5(String expectedEmail) {
         driver.manage().window().maximize();
         driver.get("https://www.pgups.ru/");
@@ -126,9 +120,8 @@ public class PgupsTestSeleniumJunit extends BaseTest {
                 .checkEmail(expectedEmail);
     }
 
-    @DisplayName("Проверка открытия программы в модуле 'Приоритет 2030'")
-    @ParameterizedTest
-    @MethodSource("selenium.junit.PgupsTestData#test6TestData")
+    @Description("Проверка открытия программы в модуле 'Приоритет 2030'")
+    @Test(dataProvider = "test6TestData", dataProviderClass = PgupsTestDataSeleniumJunit.class)
     public void test6(String expectedUrl) {
         driver.manage().window().maximize();
         driver.get("https://www.pgups.ru/");
@@ -157,9 +150,8 @@ public class PgupsTestSeleniumJunit extends BaseTest {
                         expectedUrl));
     }
 
-    @DisplayName("Скачивание документа с планом научных событий")
-    @ParameterizedTest
-    @MethodSource("selenium.junit.PgupsTestData#test7TestData")
+    @Description("Скачивание документа с планом научных событий")
+    @Test(dataProvider = "test7TestData", dataProviderClass = PgupsTestDataSeleniumJunit.class)
     public void test7(String expectedUrl) {
         driver.manage().window().maximize();
         driver.get("https://www.pgups.ru/");
@@ -175,9 +167,8 @@ public class PgupsTestSeleniumJunit extends BaseTest {
                 .planOfScientificEventsClick(expectedUrl);
     }
 
-    @DisplayName("Скачивание файла со стоимостью обучения")
-    @ParameterizedTest
-    @MethodSource("selenium.junit.PgupsTestData#test8TestData")
+    @Description("Скачивание файла со стоимостью обучения")
+    @Test(dataProvider = "test8TestData", dataProviderClass = PgupsTestDataSeleniumJunit.class)
     public void test8(String expectedUrl) throws InterruptedException {
         driver.manage().window().maximize();
         driver.get("https://www.pgups.ru/");
@@ -194,9 +185,8 @@ public class PgupsTestSeleniumJunit extends BaseTest {
                 .tuitionFeesClick(expectedUrl);
     }
 
-    @DisplayName("Скачивание файла с информацией об экскурсиях в Музей ПГУПС")
-    @ParameterizedTest
-    @MethodSource("selenium.junit.PgupsTestData#test9TestData")
+    @Description("Скачивание файла с информацией об экскурсиях в Музей ПГУПС")
+    @Test(dataProvider = "test9TestData", dataProviderClass = PgupsTestDataSeleniumJunit.class)
     public void test9(String expectedUrl) {
         driver.manage().window().maximize();
         driver.get("https://www.pgups.ru/");
@@ -212,9 +202,8 @@ public class PgupsTestSeleniumJunit extends BaseTest {
                 .applicationForGuidedTourClick(expectedUrl);
     }
 
-    @DisplayName("Проверка соответствия даты начала программы из модуля 'ПИШ'")
-    @ParameterizedTest
-    @MethodSource("selenium.junit.PgupsTestData#test10TestData")
+    @Description("Проверка соответствия даты начала программы из модуля 'ПИШ'")
+    @Test(dataProvider = "test10TestData", dataProviderClass = PgupsTestDataSeleniumJunit.class)
     public void test10(String expectedStartDate) {
         driver.manage().window().maximize();
         driver.get("https://www.pgups.ru/");

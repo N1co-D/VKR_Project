@@ -1,4 +1,4 @@
-package selenium.junit.utilites;
+package selenium.testng.utilites;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
