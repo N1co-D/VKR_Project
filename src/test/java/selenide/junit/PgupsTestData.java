@@ -47,7 +47,7 @@ public class PgupsTestData {
     }
 
     static Stream<Arguments> test8TestData() {
-        String fileName = "stoimost_obuch_1_kurs_18042022.pdf";
+        String fileName = "Prikaz-setevye-programmy-TGEU-2023_2024.pdf";
         return Stream.of(Arguments.of(fileName));
     }
 

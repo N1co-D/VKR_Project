@@ -16,6 +16,7 @@ public class AdmissionsCommitteePage extends BasePage {
     private final String numberOfPaidPlacesForAdmissionDownloadButton = "//div[contains(text(),'Количество платных мест для приёма по программам бакалавриата, специалитета, магистратуры в 2024 году')]/..//a[text()='Скачать']";
     private final String masterDegreeModule = "//header[@id='header']//a[text()='Магистратура']";
     private final String tuitionFees = "//div[@class='tab-pane fade in active']//a[normalize-space(text())='СТОИМОСТЬ ОБУЧЕНИЯ']";
+    private final String paymentOrder = "//a[contains(text(),'12.09.2023') and contains(text(),'449/К «Об оплате образовательных услуг иностранными обучающимися, зачисленными по сетевой форме реализации образовательных программ в 2023/2024 учебном году')]";
 
     @Step("Открытие страницы приемной комиссии")
     public AdmissionsCommitteePage checkIfCorrectPageOpen() {
@@ -54,7 +55,8 @@ public class AdmissionsCommitteePage extends BasePage {
 
     @Step("Скачивание файла {fileName}")
     public AdmissionsCommitteePage tuitionFeesClick(String fileName) {
-        File report = $x(tuitionFees).download();
+        jsClick($x(tuitionFees));
+        File report = $x(paymentOrder).download();
         checkIfFileExist(fileName);
         return this;
     }
