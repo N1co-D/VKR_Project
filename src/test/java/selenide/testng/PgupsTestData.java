@@ -54,7 +54,7 @@ public class PgupsTestData {
 
     @DataProvider(name = "test8TestData")
     static Object[][] test8TestData() {
-        String fileName = "stoimost_obuch_1_kurs_18042022.pdf";
+        String fileName = "Prikaz-setevye-programmy-TGEU-2023_2024.pdf";
         return new Object[][]{{fileName}};
     }
 
