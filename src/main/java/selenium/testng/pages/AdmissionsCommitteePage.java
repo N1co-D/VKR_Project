@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import selenium.testng.utilites.DriverSingleton;
 
 import java.time.Duration;
 import java.util.NoSuchElementException;
@@ -19,6 +20,7 @@ public class AdmissionsCommitteePage extends BasePage {
     private final By numberOfPaidPlacesForAdmissionDownloadButton = By.xpath("//div[contains(text(),'Количество платных мест для приёма по программам бакалавриата, специалитета, магистратуры в 2024 году')]/..//a[text()='Скачать']");
     private final By masterDegreeModule = By.xpath("//header[@id='header']//a[text()='Магистратура']");
     private final By tuitionFees = By.xpath("//div[@class='tab-pane fade in active']//a[normalize-space(text())='СТОИМОСТЬ ОБУЧЕНИЯ']");
+    private final By paymentOrder = By.xpath("//a[contains(text(),'12.09.2023') and contains(text(),'449/К «Об оплате образовательных услуг иностранными обучающимися, зачисленными по сетевой форме реализации образовательных программ в 2023/2024 учебном году')]");
     private final WebDriverWait webDriverWait = new WebDriverWait(MANAGER.getDriver(), Duration.ofSeconds(10));
 
     @Step("Открытие страницы приемной комиссии")
@@ -71,15 +73,22 @@ public class AdmissionsCommitteePage extends BasePage {
         return this;
     }
 
-    @Step("Скачивание файла {fileName}")
-    public AdmissionsCommitteePage tuitionFeesClick(String expectedUrl) {
+    @Step("Открытие раздела 'Стоимость обучения'")
+    public AdmissionsCommitteePage educationCostClick() {
         try {
             jsClick(webDriverWait.until(visibilityOfElementLocated(tuitionFees)));
-            assertEquals(MANAGER.getDriver().getCurrentUrl(), expectedUrl);
+            jsClick(webDriverWait.until(visibilityOfElementLocated(paymentOrder)));
         } catch (NoSuchElementException noSuchElementException) {
             System.err.println("Элемент 'tuitionFees' не был найден в течение заданного времени.");
             throw noSuchElementException;
         }
+        makeScreenshot();
+        return this;
+    }
+
+    @Step("Скачивание файла {fileName}")
+    public AdmissionsCommitteePage checkOpenTuitionFeesClick(String expectedUrl) {
+        assertEquals(DriverSingleton.MANAGER.getDriver().getCurrentUrl(), expectedUrl);
         return this;
     }
 }

@@ -17,6 +17,7 @@ import static selenium.junit.utilites.DriverSingleton.MANAGER;
 
 public class BaseTest {
     protected WebDriver driver = MANAGER.getDriver();
+}
 //
 //    @BeforeEach
 //    public void installTestConfigurations() {
@@ -31,7 +32,7 @@ public class BaseTest {
 //            driver.quit();
 //        }
 //    }
-}
+//}
 
 //    @BeforeEach
 //    public void installTestConfigurations() {

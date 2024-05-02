@@ -10,7 +10,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PgupsTestSeleniumJunitTest extends BaseTest {
+public class PgupsSeleniumJunitTest extends BaseTest {
 
     @DisplayName("Проверка отражения названия ожидаемой пары в соответствии с её порядком и днем недели")
     @ParameterizedTest
@@ -191,7 +191,13 @@ public class PgupsTestSeleniumJunitTest extends BaseTest {
 
         admissionsCommitteePage.checkIfCorrectPageOpen()
                 .masterDegreeModuleClick()
-                .tuitionFeesClick(expectedUrl);
+                .educationCostClick();
+
+        List<String> allWindowHandles = new ArrayList<>(driver.getWindowHandles());
+        String windowToSwitch = allWindowHandles.get(allWindowHandles.size() - 1);
+        driver.switchTo().window(windowToSwitch);
+
+        admissionsCommitteePage.checkOpenTuitionFeesClick(expectedUrl);
     }
 
     @DisplayName("Скачивание файла с информацией об экскурсиях в Музей ПГУПС")
@@ -263,7 +269,7 @@ public class PgupsTestSeleniumJunitTest extends BaseTest {
 //
 //    @Description("Проверка отражения названия ожидаемой пары в соответствии с её порядком и днем недели")
 //    @ParameterizedTest
-//    @MethodSource("junit.PgupsTestDataSeleniumJunit#test1TestData")
+//    @MethodSource("junit.PgupsDataSeleniumJunit#test1TestData")
 //    public void test1(String inputText,
 //                      String searchedGroup,
 //                      String dayOfWeek,
@@ -286,7 +292,7 @@ public class PgupsTestSeleniumJunitTest extends BaseTest {
 //
 //    @Description("Проверка соответствия ожидаемого и фактического адреса общежития")
 //    @ParameterizedTest
-//    @MethodSource("junit.PgupsTestDataSeleniumJunit#test2TestData")
+//    @MethodSource("junit.PgupsDataSeleniumJunit#test2TestData")
 //    public void test2(String dormitoryNumber,
 //                      String expectedDormitoryAddress) {
 //        open(confProperties.getProperty("test-site"));
@@ -301,7 +307,7 @@ public class PgupsTestSeleniumJunitTest extends BaseTest {
 //
 //    @Description("Скачивание документа с отражением количества платных мест")
 //    @ParameterizedTest
-//    @MethodSource("junit.PgupsTestDataSeleniumJunit#test3TestData")
+//    @MethodSource("junit.PgupsDataSeleniumJunit#test3TestData")
 //    public void test3(String fileName) {
 //        open(confProperties.getProperty("test-site"));
 //
@@ -315,7 +321,7 @@ public class PgupsTestSeleniumJunitTest extends BaseTest {
 //
 //    @Description("Скачивание файла учебного плана в соответствии наименованием направления и года")
 //    @ParameterizedTest
-//    @MethodSource("junit.PgupsTestDataSeleniumJunit#test4TestData")
+//    @MethodSource("junit.PgupsDataSeleniumJunit#test4TestData")
 //    public void test4(String year, String fileName) {
 //        open(confProperties.getProperty("test-site"));
 //
@@ -330,7 +336,7 @@ public class PgupsTestSeleniumJunitTest extends BaseTest {
 //
 //    @Description("Проверка соответствия ожидаемого и фактического адреса электронной почты факультета")
 //    @ParameterizedTest
-//    @MethodSource("junit.PgupsTestDataSeleniumJunit#test5TestData")
+//    @MethodSource("junit.PgupsDataSeleniumJunit#test5TestData")
 //    public void test5(String expectedEmail) {
 //        open(confProperties.getProperty("test-site"));
 //
@@ -350,7 +356,7 @@ public class PgupsTestSeleniumJunitTest extends BaseTest {
 //
 //    @Description("Проверка открытия программы в модуле 'Приоритет 2030'")
 //    @ParameterizedTest
-//    @MethodSource("junit.PgupsTestDataSeleniumJunit#test6TestData")
+//    @MethodSource("junit.PgupsDataSeleniumJunit#test6TestData")
 //    public void test6(String expectedUrl) {
 //        open(confProperties.getProperty("test-site"));
 //
@@ -374,7 +380,7 @@ public class PgupsTestSeleniumJunitTest extends BaseTest {
 //
 //    @Description("Скачивание документа с планом научных событий")
 //    @ParameterizedTest
-//    @MethodSource("junit.PgupsTestDataSeleniumJunit#test7TestData")
+//    @MethodSource("junit.PgupsDataSeleniumJunit#test7TestData")
 //    public void test7(String fileName) {
 //        open(confProperties.getProperty("test-site"));
 //
@@ -387,7 +393,7 @@ public class PgupsTestSeleniumJunitTest extends BaseTest {
 //
 //    @Description("Скачивание файла со стоимостью обучения")
 //    @ParameterizedTest
-//    @MethodSource("junit.PgupsTestDataSeleniumJunit#test8TestData")
+//    @MethodSource("junit.PgupsDataSeleniumJunit#test8TestData")
 //    public void test8(String fileName) {
 //        open(confProperties.getProperty("test-site"));
 //
@@ -401,7 +407,7 @@ public class PgupsTestSeleniumJunitTest extends BaseTest {
 //
 //    @Description("Скачивание файла с информацией об экскурсиях в Музей ПГУПС")
 //    @ParameterizedTest
-//    @MethodSource("junit.PgupsTestDataSeleniumJunit#test9TestData")
+//    @MethodSource("junit.PgupsDataSeleniumJunit#test9TestData")
 //    public void test9(String fileName) {
 //        open(confProperties.getProperty("test-site"));
 //
@@ -414,7 +420,7 @@ public class PgupsTestSeleniumJunitTest extends BaseTest {
 //
 //    @Description("Проверка соответствия даты начала программы из модуля 'ПИШ'")
 //    @ParameterizedTest
-//    @MethodSource("junit.PgupsTestDataSeleniumJunit#test10TestData")
+//    @MethodSource("junit.PgupsDataSeleniumJunit#test10TestData")
 //    public void test10(String expectedStartDate) {
 //        open(confProperties.getProperty("test-site"));
 //

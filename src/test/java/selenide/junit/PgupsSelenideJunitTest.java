@@ -1,12 +1,13 @@
-package selenide.testng;
+package selenide.junit;
 
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Description;
-import org.apache.commons.io.FileUtils;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.Test;
-import selenide.testng.pages.*;
+import selenide.junit.pages.*;
 import selenide.junit.utilites.ConfProperties;
+import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +17,7 @@ import java.util.List;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class PgupsTestSelenideTestngTest extends BaseTest {
+public class PgupsSelenideJunitTest extends BaseTest {
     private final MainPage mainPage = new MainPage();
     private final SchedulePage schedulePage = new SchedulePage();
     private final HabitationPage habitationPage = new HabitationPage();
@@ -32,13 +33,14 @@ public class PgupsTestSelenideTestngTest extends BaseTest {
     private final AutomatedDispatchControlSystemsPage automatedDispatchControlSystemsPage = new AutomatedDispatchControlSystemsPage();
     private final ConfProperties confProperties = new ConfProperties();
 
-    @AfterSuite
+    @AfterAll
     public static void cleanUp() throws IOException {
         FileUtils.deleteDirectory(new File("src/downloads"));
     }
 
     @Description("Проверка отражения названия ожидаемой пары в соответствии с её порядком и днем недели")
-    @Test(dataProvider = "test1TestData", dataProviderClass = PgupsTestData.class)
+    @ParameterizedTest
+    @MethodSource("selenide.junit.PgupsTestData#test1TestData")
     public void test1(String inputText,
                       String searchedGroup,
                       String dayOfWeek,
@@ -60,7 +62,8 @@ public class PgupsTestSelenideTestngTest extends BaseTest {
     }
 
     @Description("Проверка соответствия ожидаемого и фактического адреса общежития")
-    @Test(dataProvider = "test2TestData", dataProviderClass = PgupsTestData.class)
+    @ParameterizedTest
+    @MethodSource("selenide.junit.PgupsTestData#test2TestData")
     public void test2(String dormitoryNumber,
                       String expectedDormitoryAddress) {
         open(confProperties.getProperty("test-site"));
@@ -74,7 +77,8 @@ public class PgupsTestSelenideTestngTest extends BaseTest {
     }
 
     @Description("Скачивание документа с отражением количества платных мест")
-    @Test(dataProvider = "test3TestData", dataProviderClass = PgupsTestData.class)
+    @ParameterizedTest
+    @MethodSource("selenide.junit.PgupsTestData#test3TestData")
     public void test3(String fileName) {
         open(confProperties.getProperty("test-site"));
 
@@ -87,7 +91,8 @@ public class PgupsTestSelenideTestngTest extends BaseTest {
     }
 
     @Description("Скачивание файла учебного плана в соответствии наименованием направления и года")
-    @Test(dataProvider = "test4TestData", dataProviderClass = PgupsTestData.class)
+    @ParameterizedTest
+    @MethodSource("selenide.junit.PgupsTestData#test4TestData")
     public void test4(String year, String fileName) {
         open(confProperties.getProperty("test-site"));
 
@@ -101,7 +106,8 @@ public class PgupsTestSelenideTestngTest extends BaseTest {
     }
 
     @Description("Проверка соответствия ожидаемого и фактического адреса электронной почты факультета")
-    @Test(dataProvider = "test5TestData", dataProviderClass = PgupsTestData.class)
+    @ParameterizedTest
+    @MethodSource("selenide.junit.PgupsTestData#test5TestData")
     public void test5(String expectedEmail) {
         open(confProperties.getProperty("test-site"));
 
@@ -120,7 +126,8 @@ public class PgupsTestSelenideTestngTest extends BaseTest {
     }
 
     @Description("Проверка открытия программы в модуле 'Приоритет 2030'")
-    @Test(dataProvider = "test6TestData", dataProviderClass = PgupsTestData.class)
+    @ParameterizedTest
+    @MethodSource("selenide.junit.PgupsTestData#test6TestData")
     public void test6(String expectedUrl) {
         open(confProperties.getProperty("test-site"));
 
@@ -143,7 +150,8 @@ public class PgupsTestSelenideTestngTest extends BaseTest {
     }
 
     @Description("Скачивание документа с планом научных событий")
-    @Test(dataProvider = "test7TestData", dataProviderClass = PgupsTestData.class)
+    @ParameterizedTest
+    @MethodSource("selenide.junit.PgupsTestData#test7TestData")
     public void test7(String fileName) {
         open(confProperties.getProperty("test-site"));
 
@@ -155,7 +163,8 @@ public class PgupsTestSelenideTestngTest extends BaseTest {
     }
 
     @Description("Скачивание файла со стоимостью обучения")
-    @Test(dataProvider = "test8TestData", dataProviderClass = PgupsTestData.class)
+    @ParameterizedTest
+    @MethodSource("selenide.junit.PgupsTestData#test8TestData")
     public void test8(String fileName) {
         open(confProperties.getProperty("test-site"));
 
@@ -168,7 +177,8 @@ public class PgupsTestSelenideTestngTest extends BaseTest {
     }
 
     @Description("Скачивание файла с информацией об экскурсиях в Музей ПГУПС")
-    @Test(dataProvider = "test9TestData", dataProviderClass = PgupsTestData.class)
+    @ParameterizedTest
+    @MethodSource("selenide.junit.PgupsTestData#test9TestData")
     public void test9(String fileName) {
         open(confProperties.getProperty("test-site"));
 
@@ -180,7 +190,8 @@ public class PgupsTestSelenideTestngTest extends BaseTest {
     }
 
     @Description("Проверка соответствия даты начала программы из модуля 'ПИШ'")
-    @Test(dataProvider = "test10TestData", dataProviderClass = PgupsTestData.class)
+    @ParameterizedTest
+    @MethodSource("selenide.junit.PgupsTestData#test10TestData")
     public void test10(String expectedStartDate) {
         open(confProperties.getProperty("test-site"));
 

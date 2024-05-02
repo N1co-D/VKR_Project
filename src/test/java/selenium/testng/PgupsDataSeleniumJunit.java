@@ -2,7 +2,7 @@ package selenium.testng;
 
 import org.testng.annotations.DataProvider;
 
-public class PgupsTestDataSeleniumJunit {
+public class PgupsDataSeleniumJunit {
 
     @DataProvider(name = "test1TestData")
     static Object[][] test1TestData() {
@@ -54,7 +54,7 @@ public class PgupsTestDataSeleniumJunit {
 
     @DataProvider(name = "test8TestData")
     static Object[][] test8TestData() {
-        String expectedUrl = "https://www.pgups.ru/upload/medialibrary/697/stoimost_obuch_1_kurs_18042022.pdf";
+        String expectedUrl = "https://www.pgups.ru/upload/medialibrary/1c3/iyk68klskrsr2apmx87mh0at0hwiq602/Prikaz-setevye-programmy-TGEU-2023_2024.pdf";
         return new Object[][]{{expectedUrl}};
     }
 
