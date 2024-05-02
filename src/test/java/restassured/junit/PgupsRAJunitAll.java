@@ -7,7 +7,7 @@ import restassured.junit.specs.Specification;
 import static io.restassured.RestAssured.given;
 import static restassured.junit.services.Constants.*;
 
-public class AllTest {
+public class PgupsRAJunitAll {
     private static final ResponseSpecification RESPONSE_SPECIFICATION = Specification.responseSpecification();
 
     @Test
